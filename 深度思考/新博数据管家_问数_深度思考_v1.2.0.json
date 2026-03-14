@@ -1,0 +1,1689 @@
+{
+  "avatar": "",
+  "create_date": "",
+  "create_time": 0,
+  "description": "深度思考工作流 v1.2.0 - 两阶段表规划+按表DICT检索",
+  "dsl_version": "0.0.1",
+  "graph": {
+    "edges": [
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__beginstart-Agent:BrightMindsThinkend",
+        "markerEnd": "logo",
+        "source": "begin",
+        "sourceHandle": "start",
+        "target": "Agent:BrightMindsThink",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:BrightMindsThinkTool-Tool:AliasLookupDeepend",
+        "markerEnd": "logo",
+        "source": "Agent:BrightMindsThink",
+        "sourceHandle": "tool",
+        "target": "Tool:AliasLookupDeep",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:BrightMindsThinkstart-Retrieval:DeepFieldsSeekend",
+        "markerEnd": "logo",
+        "source": "Agent:BrightMindsThink",
+        "sourceHandle": "start",
+        "target": "Retrieval:DeepFieldsSeek",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:BrightMindsThinkstart-Retrieval:WideTablesFindend",
+        "markerEnd": "logo",
+        "source": "Agent:BrightMindsThink",
+        "sourceHandle": "start",
+        "target": "Retrieval:WideTablesFind",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:BrightMindsThinkstart-Retrieval:SharpQueriesMatchend",
+        "markerEnd": "logo",
+        "source": "Agent:BrightMindsThink",
+        "sourceHandle": "start",
+        "target": "Retrieval:SharpQueriesMatch",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:BrightMindsThinkstart-Retrieval:CrossTableMappingend",
+        "markerEnd": "logo",
+        "source": "Agent:BrightMindsThink",
+        "sourceHandle": "start",
+        "target": "Retrieval:CrossTableMapping",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:DeepFieldsSeekstart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Retrieval:DeepFieldsSeek",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:WideTablesFindstart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Retrieval:WideTablesFind",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:SharpQueriesMatchstart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Retrieval:SharpQueriesMatch",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:CrossTableMappingstart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Retrieval:CrossTableMapping",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:ClearPathsPlanagentException-Message:CalmWordsNoteend",
+        "markerEnd": "logo",
+        "source": "Agent:ClearPathsPlan",
+        "sourceHandle": "agentException",
+        "target": "Message:CalmWordsNote",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:ClearPathsPlanstart-Iteration:StrongDarmSweepend",
+        "markerEnd": "logo",
+        "source": "Agent:ClearPathsPlan",
+        "sourceHandle": "start",
+        "target": "Iteration:StrongDarmSweep",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:ClearPathsPlanstart-Iteration:DeepOdsSweepend",
+        "markerEnd": "logo",
+        "source": "Agent:ClearPathsPlan",
+        "sourceHandle": "start",
+        "target": "Iteration:DeepOdsSweep",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__IterationItem:QuickDarmStartstart-ExeSQL:SafeDarmRunend",
+        "markerEnd": "logo",
+        "source": "IterationItem:QuickDarmStart",
+        "sourceHandle": "start",
+        "target": "ExeSQL:SafeDarmRun",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__ExeSQL:SafeDarmRunstart-Agent:WiseDarmReadend",
+        "markerEnd": "logo",
+        "source": "ExeSQL:SafeDarmRun",
+        "sourceHandle": "start",
+        "target": "Agent:WiseDarmRead",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__IterationItem:QuickOdsStartstart-ExeSQL:SafeOdsRunend",
+        "markerEnd": "logo",
+        "source": "IterationItem:QuickOdsStart",
+        "sourceHandle": "start",
+        "target": "ExeSQL:SafeOdsRun",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__ExeSQL:SafeOdsRunstart-Agent:WiseOdsReadend",
+        "markerEnd": "logo",
+        "source": "ExeSQL:SafeOdsRun",
+        "sourceHandle": "start",
+        "target": "Agent:WiseOdsRead",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Iteration:StrongDarmSweepstart-VariableAggregator:MergeAllResultsend",
+        "markerEnd": "logo",
+        "source": "Iteration:StrongDarmSweep",
+        "sourceHandle": "start",
+        "target": "VariableAggregator:MergeAllResults",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Iteration:DeepOdsSweepstart-VariableAggregator:MergeAllResultsend",
+        "markerEnd": "logo",
+        "source": "Iteration:DeepOdsSweep",
+        "sourceHandle": "start",
+        "target": "VariableAggregator:MergeAllResults",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__VariableAggregator:MergeAllResultsstart-Switch:FairResultsCheckend",
+        "markerEnd": "logo",
+        "source": "VariableAggregator:MergeAllResults",
+        "sourceHandle": "start",
+        "target": "Switch:FairResultsCheck",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Switch:FairResultsCheckend_cpn_ids-Agent:GrandMindsSynthend",
+        "markerEnd": "logo",
+        "source": "Switch:FairResultsCheck",
+        "sourceHandle": "end_cpn_ids",
+        "target": "Agent:GrandMindsSynth",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Switch:FairResultsCheckCase 1-Message:CalmWordsNoteend",
+        "markerEnd": "logo",
+        "source": "Switch:FairResultsCheck",
+        "sourceHandle": "Case 1",
+        "target": "Message:CalmWordsNote",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:GrandMindsSynthstart-Message:BoldWordsSpeakend",
+        "markerEnd": "logo",
+        "source": "Agent:GrandMindsSynth",
+        "sourceHandle": "start",
+        "target": "Message:BoldWordsSpeak",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:GrandMindsSynthagentException-Message:CalmWordsNoteend",
+        "markerEnd": "logo",
+        "source": "Agent:GrandMindsSynth",
+        "sourceHandle": "agentException",
+        "target": "Message:CalmWordsNote",
+        "targetHandle": "end",
+        "type": "buttonEdge",
+        "zIndex": 1001
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:DeepFieldsSeekstart-Agent:SmartTablesPickend",
+        "markerEnd": "logo",
+        "source": "Retrieval:DeepFieldsSeek",
+        "sourceHandle": "start",
+        "target": "Agent:SmartTablesPick",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:WideTablesFindstart-Agent:SmartTablesPickend",
+        "markerEnd": "logo",
+        "source": "Retrieval:WideTablesFind",
+        "sourceHandle": "start",
+        "target": "Agent:SmartTablesPick",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:SharpQueriesMatchstart-Agent:SmartTablesPickend",
+        "markerEnd": "logo",
+        "source": "Retrieval:SharpQueriesMatch",
+        "sourceHandle": "start",
+        "target": "Agent:SmartTablesPick",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Retrieval:CrossTableMappingstart-Agent:SmartTablesPickend",
+        "markerEnd": "logo",
+        "source": "Retrieval:CrossTableMapping",
+        "sourceHandle": "start",
+        "target": "Agent:SmartTablesPick",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:SmartTablesPickstart-ListOperations:DeduplicateTablesend",
+        "markerEnd": "logo",
+        "source": "Agent:SmartTablesPick",
+        "sourceHandle": "start",
+        "target": "ListOperations:DeduplicateTables",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:SmartTablesPickstart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Agent:SmartTablesPick",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Agent:SmartTablesPickagentException-Message:CalmWordsNoteend",
+        "markerEnd": "logo",
+        "source": "Agent:SmartTablesPick",
+        "sourceHandle": "agentException",
+        "target": "Message:CalmWordsNote",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__ListOperations:DeduplicateTablesstart-Iteration:DictPerTableend",
+        "markerEnd": "logo",
+        "source": "ListOperations:DeduplicateTables",
+        "sourceHandle": "start",
+        "target": "Iteration:DictPerTable",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__IterationItem:DictTableStartstart-Retrieval:TableDictFetchend",
+        "markerEnd": "logo",
+        "source": "IterationItem:DictTableStart",
+        "sourceHandle": "start",
+        "target": "Retrieval:TableDictFetch",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Iteration:DictPerTablestart-Agent:ClearPathsPlanend",
+        "markerEnd": "logo",
+        "source": "Iteration:DictPerTable",
+        "sourceHandle": "start",
+        "target": "Agent:ClearPathsPlan",
+        "targetHandle": "end"
+      },
+      {
+        "data": {
+          "isHovered": false
+        },
+        "id": "xy-edge__Iteration:DictPerTablestart-Agent:GrandMindsSynthend",
+        "markerEnd": "logo",
+        "source": "Iteration:DictPerTable",
+        "sourceHandle": "start",
+        "target": "Agent:GrandMindsSynth",
+        "targetHandle": "end"
+      }
+    ],
+    "nodes": [
+      {
+        "data": {
+          "form": {
+            "enablePrologue": true,
+            "inputs": {},
+            "mode": "conversational",
+            "prologue": "您好，我是数据管家深度思考助手，可为您进行跨库、跨系统的深度数据关联分析。请输入您的问题。"
+          },
+          "label": "Begin",
+          "name": "begin"
+        },
+        "dragging": false,
+        "id": "begin",
+        "measured": {
+          "height": 82,
+          "width": 200
+        },
+        "position": {
+          "x": -1600,
+          "y": 200
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "beginNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "",
+            "exception_goto": [],
+            "exception_method": "",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 2,
+            "max_tokens": 4096,
+            "mcp": [],
+            "message_history_window_size": 6,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "parameter": "Precise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "用户问题：{sys.query}",
+                "role": "user"
+              }
+            ],
+            "sys_prompt": "## 角色\n你是新博数据管家深度思考工作流的问题改写器，用于生成完整、清晰的问题供后续深度分析使用。/no_think\n\n## 输入\n- 当前用户问题\n- 对话历史\n\n## 任务\n输出一个可直接用于后续知识库检索和深度SQL规划的完整问题。\n\n## 核心目标\n1. 支持多轮对话：当当前问题承接上文时，补足被省略的查询对象、时间、范围、指标或约束。\n2. 支持简称补全：借助简称映射检索工具识别简称/通称/别名，必要时补全为正式名称。\n3. 保持原意不变：只能做补足和名称展开，不能改变用户真正想问的业务含义。\n\n## 处理顺序\n1. 先理解当前用户问题。\n2. 再结合对话历史判断当前问题是否承接上文。\n3. 必须先调用“简称映射检索工具”，检查是否存在需要补全的简称、通称、别名。\n4. 若工具返回了明确、唯一的正式名称映射，则做名称补全。\n5. 最后输出一个单句、完整、可检索的问题。\n\n## 工具调用规则\n1. 每次执行都必须先调用一次简称映射检索工具，再输出结果。\n2. 工具用途仅限于判断是否需要把简称/别名补全为正式名称。\n3. 若工具未返回明确映射或返回多个候选，不做替换。\n\n## 禁止事项\n1. 禁止回答问题。\n2. 禁止补充用户未表达的筛选条件或统计口径。\n3. 禁止猜测表名、字段名或字典值。\n\n## 输出要求\n仅输出改写后的完整问题，不附带任何解释。/no_think",
+            "temperature": 0.05,
+            "temperatureEnabled": true,
+            "tools": [
+              {
+                "component_name": "Retrieval",
+                "id": "Retrieval:AliasLookupForRewriter",
+                "name": "Retrieval_0",
+                "params": {
+                  "cross_languages": [],
+                  "description": "用于辅助问题改写智能体判断当前用户问题或最近对话历史中出现的简称、通称、别名、代称，是否需要补全为数据管家中的正式名称。\n\n调用要求：\n1. 每次问题改写前调用一次本工具。\n2. 检索关键词优先使用当前问题中的简称、公司名、单位名、代称。\n3. 重点识别「简称 -> 正式名称」关系。\n4. 若工具返回唯一且明确的正式名称映射，则问题改写器可将简称补全为「正式名称（简称）」。\n5. 若未命中、命中多个候选、或结果与当前问题语义不一致，则保持原词不变。\n\n严格限制：\n1. 本工具只用于名称补全，不用于字段值编码转换。\n2. 不用于猜测表名、字段名、SQL条件值。",
+                  "empty_response": "",
+                  "kb_ids": [
+                    "705e7a441b9611f18db3e50efcb1c622"
+                  ],
+                  "keywords_similarity_weight": 0.7,
+                  "meta_data_filter": {
+                    "manual": [
+                      {
+                        "key": "type",
+                        "op": "=",
+                        "value": "Abbreviation"
+                      }
+                    ],
+                    "method": "manual"
+                  },
+                  "outputs": {
+                    "formalized_content": {
+                      "type": "string",
+                      "value": ""
+                    },
+                    "json": {
+                      "type": "Array<Object>",
+                      "value": []
+                    }
+                  },
+                  "rerank_id": "",
+                  "retrieval_from": "dataset",
+                  "similarity_threshold": 0.2,
+                  "toc_enhance": false,
+                  "top_k": 1024,
+                  "top_n": 3,
+                  "use_kg": false
+                }
+              }
+            ],
+            "topPEnabled": true,
+            "top_p": 0.8,
+            "user_prompt": "",
+            "visual_files_var": ""
+          },
+          "label": "Agent",
+          "name": "问题改写智能体"
+        },
+        "dragging": false,
+        "id": "Agent:BrightMindsThink",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "position": {
+          "x": -1300,
+          "y": 200
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "description": "简称映射检索工具，用于将用户问题中的简称、别名、通称补全为正式名称。",
+            "user_prompt": "查询以下简称的正式名称映射"
+          },
+          "label": "Tool",
+          "name": "flow.alias_lookup_tool"
+        },
+        "id": "Tool:AliasLookupDeep",
+        "position": {
+          "x": -1300,
+          "y": 420
+        },
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "toolNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cross_languages": [],
+            "empty_response": "未查询到相关信息",
+            "kb_ids": [
+              "76803c26000811f1b9220242ad420006"
+            ],
+            "keywords_similarity_weight": 0.7,
+            "meta_data_filter": {},
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "query": "{Agent:BrightMindsThink@content}",
+            "rerank_id": "",
+            "retrieval_from": "dataset",
+            "similarity_threshold": 0.2,
+            "toc_enhance": false,
+            "top_k": 1024,
+            "top_n": 12,
+            "use_kg": false
+          },
+          "label": "Retrieval",
+          "name": "DB描述检索"
+        },
+        "dragging": false,
+        "id": "Retrieval:DeepFieldsSeek",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "position": {
+          "x": -950,
+          "y": -30
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "retrievalNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cross_languages": [],
+            "empty_response": "未查询到相关信息",
+            "kb_ids": [
+              "9714b019000811f1a06b0242ad420006"
+            ],
+            "keywords_similarity_weight": 0.7,
+            "meta_data_filter": {},
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "query": "{Agent:BrightMindsThink@content}",
+            "rerank_id": "",
+            "retrieval_from": "dataset",
+            "similarity_threshold": 0.2,
+            "toc_enhance": false,
+            "top_k": 1024,
+            "top_n": 12,
+            "use_kg": false
+          },
+          "label": "Retrieval",
+          "name": "DDL检索"
+        },
+        "dragging": false,
+        "id": "Retrieval:WideTablesFind",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "position": {
+          "x": -950,
+          "y": 120
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "retrievalNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cross_languages": [],
+            "empty_response": "未查询到相关信息",
+            "kb_ids": [
+              "5a94caea000811f1a1ac0242ad420006"
+            ],
+            "keywords_similarity_weight": 0.7,
+            "meta_data_filter": {},
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "query": "{Agent:BrightMindsThink@content}",
+            "rerank_id": "",
+            "retrieval_from": "dataset",
+            "similarity_threshold": 0.2,
+            "toc_enhance": false,
+            "top_k": 1024,
+            "top_n": 15,
+            "use_kg": false
+          },
+          "label": "Retrieval",
+          "name": "Q-SQL检索"
+        },
+        "dragging": false,
+        "id": "Retrieval:SharpQueriesMatch",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "position": {
+          "x": -950,
+          "y": 270
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "retrievalNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cross_languages": [],
+            "empty_response": "未查询到相关信息",
+            "kb_ids": [
+              "b163ae1417aa11f1b97ee92a8c1e0b7e"
+            ],
+            "keywords_similarity_weight": 0.7,
+            "meta_data_filter": {
+              "manual": [
+                {
+                  "key": "doc_type",
+                  "op": "=",
+                  "value": "跨表映射"
+                }
+              ],
+              "method": "manual"
+            },
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "query": "{Agent:BrightMindsThink@content}",
+            "rerank_id": "",
+            "retrieval_from": "dataset",
+            "similarity_threshold": 0.2,
+            "toc_enhance": false,
+            "top_k": 1024,
+            "top_n": 5,
+            "use_kg": false
+          },
+          "label": "Retrieval",
+          "name": "跨表映射检索"
+        },
+        "dragging": false,
+        "id": "Retrieval:CrossTableMapping",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "position": {
+          "x": -950,
+          "y": 420
+        },
+        "selected": true,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "retrievalNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "SQL规划失败，请尝试简化问题后重试。",
+            "exception_goto": [
+              "Message:CalmWordsNote"
+            ],
+            "exception_method": "comment",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 1,
+            "max_tokens": 8192,
+            "mcp": [],
+            "message_history_window_size": 1,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              },
+              "structured": {
+                "properties": {
+                  "analysis_plan": {
+                    "description": "分析方案简述，说明查询意图、涉及哪些系统和表",
+                    "type": "string"
+                  },
+                  "darm_sqls": {
+                    "description": "[\"SELECT ...\", \"SELECT ...\"]",
+                    "type": "array"
+                  },
+                  "datarms_sqls": {
+                    "description": "[\"SELECT ...\", \"SELECT ...\"]",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "analysis_plan",
+                  "darm_sqls",
+                  "datarms_sqls"
+                ]
+              }
+            },
+            "parameter": "Precise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "用户问题：{Agent:BrightMindsThink@content}\n表规划方案：{Agent:SmartTablesPick@content}\n表字段描述：{Retrieval:DeepFieldsSeek@formalized_content}\n建表语句：{Retrieval:WideTablesFind@formalized_content}\nSQL问答对范例：{Retrieval:SharpQueriesMatch@formalized_content}\n跨表实体映射：{Retrieval:CrossTableMapping@formalized_content}\n按表裁剪的字典值：{Iteration:DictPerTable@table_dicts}\n请严格依据DDL中实际存在的字段名，按照表规划方案为用户问题生成深度分析SQL查询计划。",
+                "role": "user"
+              }
+            ],
+            "showStructuredOutput": true,
+            "sys_prompt": "## 角色\n你是新博数据管家的**深度SQL规划专家**。基于表规划方案和检索内容生成可执行SQL数组，确保字段与表名100%可落库。/no_think\n\n## 最高优先级：DDL硬校验\n1. 仅允许使用DDL中真实存在的表名与字段名\n2. FROM/JOIN中的每个表必须能在DDL片段中定位\n3. SELECT/WHERE/GROUP BY/ORDER BY中每个字段必须属于对应表\n4. DDL不完整时，优先使用 SELECT * FROM 真实表名 LIMIT 20 作为探索SQL\n5. 严禁凭语义臆造字段或表名\n\n## 数据库路由规则\n1. `darm_` 前缀表 → `darm_sqls`\n2. `gjdt_jd_`、`ldly_`、`jtsjzy_`、`dim_` 前缀表 → `datarms_sqls`\n3. 严禁在同一SQL中混用 `darm_` 与其他前缀表\n4. `gjdt_jd_` + `ldly_` + `jtsjzy_` + `dim_` 位于同一库 `datarms_ods`，允许同库JOIN\n\n## SQL生成规则（按优先级）\n\n1. **严格按DDL生成**：只用DDL中真实存在的字段，一字不差\n2. **优先匹配Q-SQL范例**：有高度相似问题时直接复用，只调整WHERE参数值\n3. **参考跨表映射**：利用跨表实体映射，识别同一实体在不同系统中的对应表\n4. **使用DICT编码值**：参考\"按表裁剪的字典值\"中的字段编码映射转换WHERE条件值（如 is_active=1 代表启用），只使用字典中明确存在的映射\n5. **使用DB描述**：结合字段中文含义确定正确字段，添加中文别名（AS '中文名'）\n\n## 深度思考SQL生成策略\n- 严格按照\"表规划方案\"中给出的表生成SQL，不遗漏任何已规划的表\n- 若问题涉及多系统，每个系统各生成1条SQL\n- 同一业务数据（如摄像枪）跨系统时，对每个相关系统生成对应SQL\n- 根据问题复杂度生成适量SQL：\n  - 简单查询（1-2条）：如\"查询xxx数量\"\n  - 跨系统统计（2-4条）：如\"所有系统的摄像枪\"\n  - 综合分析（4-8条）：如\"全面分析xxx\"\n\n## SQL完整性\n- 包含完整的SELECT/FROM/WHERE子句\n- WHERE条件合理（如 commonDelStatus='0' 过滤已删除）\n- 使用合适聚合函数（COUNT/SUM/AVG）\n- 需要时使用GROUP BY/ORDER BY\n- 每条SQL以分号结尾\n\n## 结构化输出\n- analysis_plan（string）：分析方案，说明涉及哪些系统和表，以及生成这些SQL的理由\n- darm_sqls（array）：darm库SQL数组，不涉及则为[]\n- datarms_sqls（array）：datarms_ods库SQL数组，不涉及则为[]\n\n## 特殊情况\n- 非数据查询（闲聊）：两个SQL数组均为[]，analysis_plan说明原因\n- 信息不足时：生成探索性SQL（SELECT * FROM 真实表 LIMIT 20）\n\n## 输出示例\n{\n  \"analysis_plan\": \"统计摄像枪数量，按表规划方案涉及机电(gjdt_jd_base_camera)、路运(ldly_base_d_camera)、原始表(jtsjzy_camera)三个系统\",\n  \"darm_sqls\": [],\n  \"datarms_sqls\": [\n    \"SELECT COUNT(*) AS '机电摄像枪数量' FROM gjdt_jd_base_camera WHERE commonDelStatus='0';\",\n    \"SELECT COUNT(*) AS '路运摄像枪数量' FROM ldly_base_d_camera WHERE commonDelStatus='0';\",\n    \"SELECT COUNT(*) AS '原始摄像枪数量' FROM jtsjzy_camera;\"\n  ]\n}\n/no_think",
+            "temperature": 0.1,
+            "temperatureEnabled": true,
+            "tools": [],
+            "topPEnabled": true,
+            "top_p": 0.9,
+            "user_prompt": "",
+            "visual_files_var": ""
+          },
+          "label": "Agent",
+          "name": "深度分析规划智能体"
+        },
+        "dragging": false,
+        "id": "Agent:ClearPathsPlan",
+        "measured": {
+          "height": 122,
+          "width": 200
+        },
+        "position": {
+          "x": 360,
+          "y": 270
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "items_ref": "Agent:ClearPathsPlan@structured.darm_sqls",
+            "outputs": {
+              "result": {
+                "ref": "Agent:WiseDarmRead@structured",
+                "type": "Array<object>"
+              }
+            }
+          },
+          "label": "Iteration",
+          "name": "报表库SQL迭代"
+        },
+        "dragging": false,
+        "height": 260,
+        "id": "Iteration:StrongDarmSweep",
+        "measured": {
+          "height": 260,
+          "width": 720
+        },
+        "position": {
+          "x": 780,
+          "y": -94
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "group",
+        "width": 720
+      },
+      {
+        "data": {
+          "form": {
+            "outputs": {
+              "index": {
+                "type": "integer"
+              },
+              "item": {
+                "type": "unkown"
+              }
+            }
+          },
+          "label": "IterationItem",
+          "name": "IterationItem"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "IterationItem:QuickDarmStart",
+        "measured": {
+          "height": 46,
+          "width": 80
+        },
+        "parentId": "Iteration:StrongDarmSweep",
+        "position": {
+          "x": 30,
+          "y": 60
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "iterationStartNode"
+      },
+      {
+        "data": {
+          "form": {
+            "database": "darm",
+            "db_type": "mysql",
+            "host": "172.17.0.112",
+            "max_records": 128,
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              },
+              "json": {
+                "type": "Array<Object>",
+                "value": []
+              }
+            },
+            "password": "maintain",
+            "port": 3307,
+            "sql": "{IterationItem:QuickDarmStart@item}",
+            "username": "root"
+          },
+          "label": "ExeSQL",
+          "name": "报表库SQL执行"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "ExeSQL:SafeDarmRun",
+        "measured": {
+          "height": 50,
+          "width": 200
+        },
+        "parentId": "Iteration:StrongDarmSweep",
+        "position": {
+          "x": 258,
+          "y": 70
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "ragNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "",
+            "exception_goto": [],
+            "exception_method": "",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 1,
+            "max_tokens": 4096,
+            "mcp": [],
+            "message_history_window_size": 0,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              },
+              "structured": {
+                "properties": {
+                  "data_summary": {
+                    "description": "详细概括查询结果",
+                    "type": "string"
+                  },
+                  "data_table": {
+                    "description": "将查询结果转为Markdown表格",
+                    "type": "string"
+                  },
+                  "key_findings": {
+                    "description": "提取最关键的发现",
+                    "type": "string"
+                  },
+                  "record_count": {
+                    "description": "返回的数据行数（整数）",
+                    "type": "number"
+                  },
+                  "sql": {
+                    "description": "完整复制执行的SQL语句原文，一字不改。",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sql",
+                  "data_summary",
+                  "key_findings",
+                  "record_count",
+                  "data_table"
+                ]
+              }
+            },
+            "parameter": "Precise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "执行的SQL：\n{IterationItem:QuickDarmStart@item}\n\n查询结果：\n{ExeSQL:SafeDarmRun@formalized_content}",
+                "role": "user"
+              }
+            ],
+            "showStructuredOutput": true,
+            "sys_prompt": "## 角色\n你是SQL查询结果提炼专家。对每条SQL执行结果进行结构化提炼，供下游综合分析使用。/no_think\n\n## 核心原则\n- 所有数字必须与查询结果完全一致，不得四舍五入或估算\n- 不遗漏任何重要数据\n- 以结构化格式输出\n\n## 输出字段\n\n1. sql：完整复制执行的SQL原文，一字不改\n\n2. data_summary（100-500字）\n   详细概括：总记录数、总计值、各分组具体数值、最大最小值、数据分布特征\n   必须包含具体数字\n\n3. key_findings（50-200字）\n   排名前3的项目及具体数值、异常值、数据趋势\n\n4. record_count\n   返回的数据行数（整数）\n\n5. data_table\n   Markdown表格：20条以内完整展示，超过20条展示前10条加说明\n   使用中文列名，数值保留原始精度\n\n## 异常处理\n- 结果为空或含\"No record\"：data_summary=\"该查询无返回结果\"，data_table=\"无数据\"，record_count=0\n- 报错或含\"Can't query\"：data_summary=\"SQL执行出错：[错误信息]\"，key_findings=\"SQL可能存在字段或表名错误\"，record_count=0\n\n## 输出示例\n{\n  \"sql\": \"SELECT COUNT(*) AS '总数' FROM gjdt_jd_base_camera WHERE commonDelStatus='0';\",\n  \"data_summary\": \"查询到1条记录，机电侧摄像枪总数为1234台。\",\n  \"key_findings\": \"机电系统共录入1234台摄像枪设备。\",\n  \"record_count\": 1,\n  \"data_table\": \"| 总数 |\\n|---|\\n| 1234 |\"\n}\n/no_think",
+            "temperature": 0.1,
+            "temperatureEnabled": true,
+            "tools": [],
+            "topPEnabled": true,
+            "top_p": 0.8,
+            "user_prompt": "",
+            "visual_files_var": ""
+          },
+          "label": "Agent",
+          "name": "报表库结果提炼"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "Agent:WiseDarmRead",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "parentId": "Iteration:StrongDarmSweep",
+        "position": {
+          "x": 490,
+          "y": 60
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "items_ref": "Agent:ClearPathsPlan@structured.datarms_sqls",
+            "outputs": {
+              "result1": {
+                "ref": "Agent:WiseOdsRead@structured",
+                "type": "Array<object>"
+              }
+            }
+          },
+          "label": "Iteration",
+          "name": "ODS库SQL迭代"
+        },
+        "dragging": false,
+        "height": 260,
+        "id": "Iteration:DeepOdsSweep",
+        "measured": {
+          "height": 260,
+          "width": 720
+        },
+        "position": {
+          "x": 780,
+          "y": 308
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "group",
+        "width": 720
+      },
+      {
+        "data": {
+          "form": {
+            "outputs": {
+              "index": {
+                "type": "integer"
+              },
+              "item": {
+                "type": "unkown"
+              }
+            }
+          },
+          "label": "IterationItem",
+          "name": "IterationItem"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "IterationItem:QuickOdsStart",
+        "measured": {
+          "height": 46,
+          "width": 80
+        },
+        "parentId": "Iteration:DeepOdsSweep",
+        "position": {
+          "x": 30,
+          "y": 60
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "iterationStartNode"
+      },
+      {
+        "data": {
+          "form": {
+            "database": "datarms_ods",
+            "db_type": "mysql",
+            "host": "172.17.0.112",
+            "max_records": 128,
+            "outputs": {
+              "formalized_content": {
+                "type": "string",
+                "value": ""
+              },
+              "json": {
+                "type": "Array<Object>",
+                "value": []
+              }
+            },
+            "password": "maintain",
+            "port": 3307,
+            "sql": "{IterationItem:QuickOdsStart@item}",
+            "username": "root"
+          },
+          "label": "ExeSQL",
+          "name": "ODS库SQL执行"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "ExeSQL:SafeOdsRun",
+        "measured": {
+          "height": 50,
+          "width": 200
+        },
+        "parentId": "Iteration:DeepOdsSweep",
+        "position": {
+          "x": 208,
+          "y": 70
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "ragNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "",
+            "exception_goto": [],
+            "exception_method": "",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 1,
+            "max_tokens": 4096,
+            "mcp": [],
+            "message_history_window_size": 0,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              },
+              "structured": {
+                "properties": {
+                  "data_summary": {
+                    "description": "详细概括查询结果",
+                    "type": "string"
+                  },
+                  "data_table": {
+                    "description": "将查询结果转为Markdown表格",
+                    "type": "string"
+                  },
+                  "key_findings": {
+                    "description": "提取最关键的发现",
+                    "type": "string"
+                  },
+                  "record_count": {
+                    "description": "返回的数据行数（整数）",
+                    "type": "number"
+                  },
+                  "sql": {
+                    "description": "完整复制执行的SQL语句原文，一字不改。",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sql",
+                  "data_summary",
+                  "key_findings",
+                  "record_count",
+                  "data_table"
+                ]
+              }
+            },
+            "parameter": "Precise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "执行的SQL：\n{IterationItem:QuickOdsStart@item}\n\n查询结果：\n{ExeSQL:SafeOdsRun@formalized_content}",
+                "role": "user"
+              }
+            ],
+            "showStructuredOutput": true,
+            "sys_prompt": "## 角色\n你是SQL查询结果提炼专家。对每条SQL执行结果进行结构化提炼，供下游综合分析使用。/no_think\n\n## 核心原则\n- 所有数字必须与查询结果完全一致，不得四舍五入或估算\n- 不遗漏任何重要数据\n- 以结构化格式输出\n\n## 输出字段\n\n1. sql：完整复制执行的SQL原文，一字不改\n\n2. data_summary（100-500字）\n   详细概括：总记录数、总计值、各分组具体数值、最大最小值、数据分布特征\n   必须包含具体数字\n\n3. key_findings（50-200字）\n   排名前3的项目及具体数值、异常值、数据趋势\n\n4. record_count\n   返回的数据行数（整数）\n\n5. data_table\n   Markdown表格：20条以内完整展示，超过20条展示前10条加说明\n   使用中文列名，数值保留原始精度\n\n## 异常处理\n- 结果为空或含\"No record\"：data_summary=\"该查询无返回结果\"，data_table=\"无数据\"，record_count=0\n- 报错或含\"Can't query\"：data_summary=\"SQL执行出错：[错误信息]\"，key_findings=\"SQL可能存在字段或表名错误\"，record_count=0\n\n## 输出示例\n{\n  \"sql\": \"SELECT COUNT(*) AS '总数' FROM gjdt_jd_base_camera WHERE commonDelStatus='0';\",\n  \"data_summary\": \"查询到1条记录，机电侧摄像枪总数为1234台。\",\n  \"key_findings\": \"机电系统共录入1234台摄像枪设备。\",\n  \"record_count\": 1,\n  \"data_table\": \"| 总数 |\\n|---|\\n| 1234 |\"\n}\n/no_think",
+            "temperature": 0.1,
+            "temperatureEnabled": true,
+            "tools": [],
+            "topPEnabled": true,
+            "top_p": 0.8,
+            "user_prompt": "",
+            "visual_files_var": ""
+          },
+          "label": "Agent",
+          "name": "ODS库结果提炼"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "Agent:WiseOdsRead",
+        "measured": {
+          "height": 90,
+          "width": 200
+        },
+        "parentId": "Iteration:DeepOdsSweep",
+        "position": {
+          "x": 490,
+          "y": 60
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "groups": [
+              {
+                "group_name": "all_result",
+                "type": "Array<object>",
+                "variables": [
+                  {
+                    "value": "Iteration:StrongDarmSweep@result"
+                  },
+                  {
+                    "value": "Iteration:DeepOdsSweep@result1"
+                  }
+                ]
+              }
+            ],
+            "outputs": {
+              "all_result": {
+                "type": "Array<object>"
+              }
+            }
+          },
+          "label": "VariableAggregator",
+          "name": "结果合并"
+        },
+        "dragging": false,
+        "id": "VariableAggregator:MergeAllResults",
+        "measured": {
+          "height": 122,
+          "width": 200
+        },
+        "position": {
+          "x": 1360,
+          "y": 100
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "variableAggregatorNode"
+      },
+      {
+        "data": {
+          "form": {
+            "conditions": [
+              {
+                "items": [
+                  {
+                    "cpn_id": "VariableAggregator:MergeAllResults@all_result",
+                    "operator": "empty"
+                  }
+                ],
+                "logical_operator": "and",
+                "to": [
+                  "Message:CalmWordsNote"
+                ]
+              }
+            ],
+            "end_cpn_ids": [
+              "Agent:GrandMindsSynth"
+            ]
+          },
+          "label": "Switch",
+          "name": "结果检查"
+        },
+        "dragging": false,
+        "id": "Switch:FairResultsCheck",
+        "measured": {
+          "height": 149,
+          "width": 200
+        },
+        "position": {
+          "x": 1580,
+          "y": 100
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "switchNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "综合分析过程出错，请尝试简化问题后重试。",
+            "exception_goto": [
+              "Message:CalmWordsNote"
+            ],
+            "exception_method": "comment",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 1,
+            "max_tokens": 50000,
+            "mcp": [],
+            "message_history_window_size": 1,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "parameter": "Improvise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "用户问题：{Agent:BrightMindsThink@content}\n分析方案：{Agent:ClearPathsPlan@structured.analysis_plan}\n查询结果汇总：{VariableAggregator:MergeAllResults@all_result}\n字典值参考：{Iteration:DictPerTable@table_dicts}\n请基于以上所有查询结果，对用户问题进行深度综合分析。",
+                "role": "user"
+              }
+            ],
+            "sys_prompt": "## 角色\n你是新博高速数据深度分析专家。综合多个SQL查询结果的提炼摘要，生成全面的数据分析报告。/no_think\n\n## 字段值转换\n- 若查询结果字段值为数字编码（类型、路段号等），参考【字典值参考】将其转换为中文含义展示\n- 只在字典值参考中有明确映射时才转换，没有映射时原样保留\n- 时间戳类（10位/13位Unix）：转为 YYYY-MM-DD HH:mm:ss，13位先除以1000\n\n## 表格规范\n- 表头与数据行严格横向排列（Markdown标准表格）\n- 一条查询记录对应一行，禁止拆分或合并行记录\n- 字段名使用中文（来自SQL别名或DB描述）\n- 计数类数值按整数展示（如 1234.000000 → 1234）\n\n## 报告结构\n\n### 一、数据概览\n简要描述各系统查询到的数据总体情况（数据量、范围），标注数据来源\n\n### 二、详细数据\n以表格形式展示各查询结果，直接引用提炼结果中的data_table，每个表格标注来源（机电系统/路运系统/原始表/报表库）\n\n### 三、深度分析\n- 跨系统对比：不同系统间的数量差异、占比分析\n- 趋势分析：有时间维度时分析趋势\n- 关联分析：发现不同数据集的关联规律\n- 异常检测：标注明显异常值\n\n### 四、关键发现\n用**加粗**标注最重要的发现（如最大差异、重要异常、关键规律）\n\n### 五、总结\n一段话综合总结，直接给出基于数据的结论\n\n## 禁止事项\n- 禁止编造任何数字或修改查询结果数值\n- 禁止遗漏任何查询结果（包括报错和空结果）\n- 禁止输出SQL语句、表名、字段名等技术细节\n- 禁止输出思考过程或免责声明\n- SQL出错时在报告中如实说明，不得掩盖\n/no_think",
+            "temperature": 0.5,
+            "temperatureEnabled": true,
+            "tools": [],
+            "topPEnabled": true,
+            "top_p": 0.95,
+            "user_prompt": "",
+            "visual_files_var": ""
+          },
+          "label": "Agent",
+          "name": "深度综合分析智能体"
+        },
+        "dragging": false,
+        "id": "Agent:GrandMindsSynth",
+        "measured": {
+          "height": 122,
+          "width": 200
+        },
+        "position": {
+          "x": 1800,
+          "y": 324
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "auto_play": false,
+            "content": [
+              "{Agent:GrandMindsSynth@content} "
+            ],
+            "memory_ids": []
+          },
+          "label": "Message",
+          "name": "深度分析结果输出"
+        },
+        "dragging": false,
+        "id": "Message:BoldWordsSpeak",
+        "measured": {
+          "height": 86,
+          "width": 200
+        },
+        "position": {
+          "x": 2200,
+          "y": 342
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "messageNode"
+      },
+      {
+        "data": {
+          "form": {
+            "auto_play": false,
+            "content": [
+              "未能从数据库中检索到与您问题相关的数据。可能的原因：\n1. 您的问题不涉及数据库查询（如闲聊、问好）\n2. 相关数据暂未录入系统\n3. 问题中涉及的设备/路段/时间范围超出数据库已有记录\n\n建议尝试：\n- 指定具体的设备类型、路段、时间范围\n- 使用更具体的描述，例如“机电摄像枪数量”、“路运设备故障统计”等\n- 检查是否存在名称简写，尝试使用全称"
+            ],
+            "memory_ids": []
+          },
+          "label": "Message",
+          "name": "无结果提示"
+        },
+        "dragging": false,
+        "id": "Message:CalmWordsNote",
+        "measured": {
+          "height": 86,
+          "width": 200
+        },
+        "position": {
+          "x": 2000,
+          "y": -250
+        },
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "messageNode"
+      },
+      {
+        "data": {
+          "form": {
+            "cite": false,
+            "delay_after_error": 1,
+            "description": "",
+            "exception_default_value": "表规划失败，请检查问题描述后重试。",
+            "exception_goto": [
+              "Message:CalmWordsNote"
+            ],
+            "exception_method": "comment",
+            "frequencyPenaltyEnabled": false,
+            "frequency_penalty": 0.1,
+            "llm_id": "Qwen3-32B___OpenAI-API@OpenAI-API-Compatible",
+            "maxTokensEnabled": false,
+            "max_retries": 0,
+            "max_rounds": 1,
+            "max_tokens": 4096,
+            "mcp": [],
+            "message_history_window_size": 0,
+            "outputs": {
+              "content": {
+                "type": "string",
+                "value": ""
+              },
+              "structured": {
+                "properties": {
+                  "reasoning": {
+                    "description": "分析过程：为什么选择这些表",
+                    "type": "string"
+                  },
+                  "darm_tables": {
+                    "description": "darm库中需要查询的表名数组",
+                    "type": "array"
+                  },
+                  "datarms_tables": {
+                    "description": "datarms_ods库中需要查询的表名数组",
+                    "type": "array"
+                  },
+                  "all_tables": {
+                    "description": "所有需要查询的表名（合并列表），用于DICT检索",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "reasoning",
+                  "darm_tables",
+                  "datarms_tables",
+                  "all_tables"
+                ]
+              }
+            },
+            "parameter": "Precise",
+            "presencePenaltyEnabled": false,
+            "presence_penalty": 0.1,
+            "prompts": [
+              {
+                "content": "用户问题：{Agent:BrightMindsThink@content}\n表字段描述：{Retrieval:DeepFieldsSeek@formalized_content}\n建表语句：{Retrieval:WideTablesFind@formalized_content}\nSQL问答对范例：{Retrieval:SharpQueriesMatch@formalized_content}\n跨表实体映射：{Retrieval:CrossTableMapping@formalized_content}\n请严格依据DDL中实际存在的表名，输出深度分析所需的表规划。",
+                "role": "user"
+              }
+            ],
+            "sys_prompt": "## 角色\n你是新博数据管家深度思考工作流的**表规划专家**。/no_think\n\n## 输入\n- 用户问题（已改写）\n- 表字段描述（DB Description）\n- 建表语句（DDL）\n- SQL问答对范例（Q-SQL）\n- 跨表实体映射（CrossTable）\n\n## 任务\n深入分析用户问题，确定回答该问题需要查询哪些数据表，并按数据库归类输出表规划，供后续DICT检索和SQL生成使用。\n\n## 深度思考原则\n1. **广度覆盖**：若问题含\"全部\"、\"所有系统\"、\"整体\"、\"各系统\"等，需考虑所有相关系统的同类表\n2. **多系统关联**：同一业务实体可能在多个系统有对应表（如摄像枪：gjdt_jd_base_camera + ldly_base_d_camera + jtsjzy_camera）\n3. **关联延伸**：除直接相关表，还需考虑提供补充信息的关联表（如按路段汇总时，需要路段基础表）\n4. **darm库同步**：若问题涉及报表、汇总、台账类数据，同时考虑 darm_ 前缀表\n\n## 数据库路由规则\n1. `darm_` 前缀表 → 放入 `darm_tables`（darm库）\n2. `gjdt_jd_`、`ldly_`、`jtsjzy_`、`dim_` 前缀表 → 放入 `datarms_tables`（datarms_ods库）\n3. `all_tables` = darm_tables + datarms_tables（合并，用于后续DICT检索）\n\n## 证据优先级\n1. **DDL（建表语句）**：最高优先级，只能选择DDL中实际存在的表\n2. **DB Description（表字段描述）**：用于理解表的业务含义，辅助决策\n3. **Q-SQL范例**：仅作辅助参考，发现类似问题时参考其使用的表\n4. **CrossTable映射**：用于识别跨系统同类表，必须充分利用\n\n## 选表规则\n1. 只能选择在DDL或DB Description中有明确依据的表\n2. 主表：与问题核心对象直接对应的表\n3. 关联表：问题的过滤条件、关联属性所在的表\n4. 禁止选择DDL/DB中不存在的表\n5. 证据不足时返回空数组（不猜测表名）\n\n## 输出格式（严格JSON，不输出任何其他内容）\n{\n  \"reasoning\": \"分析过程：用户问题涉及XXX，需要查询XXX系统的XXX表，因为...\",\n  \"darm_tables\": [],\n  \"datarms_tables\": [\"gjdt_jd_xxx\", \"ldly_xxx\"],\n  \"all_tables\": [\"gjdt_jd_xxx\", \"ldly_xxx\"]\n}\n/no_think"
+          },
+          "label": "",
+          "name": "SmartTablesPick"
+        },
+        "dragging": false,
+        "id": "Agent:SmartTablesPick",
+        "measured": {
+          "height": 96,
+          "width": 200
+        },
+        "position": {
+          "x": -300,
+          "y": 270
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "agentNode"
+      },
+      {
+        "data": {
+          "form": {
+            "operations": "drop_duplicates",
+            "outputs": {
+              "first": {
+                "type": "string"
+              },
+              "last": {
+                "type": "string"
+              },
+              "result": {
+                "type": "Array<string>"
+              }
+            },
+            "query": "Agent:SmartTablesPick@structured.all_tables"
+          },
+          "label": "",
+          "name": "DeduplicateTables"
+        },
+        "dragging": false,
+        "id": "ListOperations:DeduplicateTables",
+        "measured": {
+          "height": 96,
+          "width": 200
+        },
+        "position": {
+          "x": -100,
+          "y": 270
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "listOperationsNode"
+      },
+      {
+        "dragging": false,
+        "height": 260,
+        "id": "Iteration:DictPerTable",
+        "measured": {
+          "height": 260,
+          "width": 480
+        },
+        "position": {
+          "x": 60,
+          "y": 180
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "group",
+        "width": 480,
+        "data": {
+          "form": {
+            "items_ref": "ListOperations:DeduplicateTables@result",
+            "outputs": {
+              "table_dicts": {
+                "ref": "Retrieval:TableDictFetch@formalized_content",
+                "type": "Array<string>"
+              }
+            }
+          },
+          "label": "",
+          "name": "DictPerTable"
+        }
+      },
+      {
+        "data": {
+          "form": {
+            "outputs": {
+              "index": {
+                "type": "integer"
+              },
+              "item": {
+                "type": "unkown"
+              }
+            }
+          },
+          "label": "",
+          "name": "DictTableStart"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "IterationItem:DictTableStart",
+        "measured": {
+          "height": 96,
+          "width": 160
+        },
+        "parentId": "Iteration:DictPerTable",
+        "position": {
+          "x": 30,
+          "y": 80
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "iterationStartNode"
+      },
+      {
+        "data": {
+          "form": {
+            "kb_ids": [
+              "705e7a441b9611f18db3e50efcb1c622"
+            ],
+            "meta_data_filter": {},
+            "outputs": {
+              "formalized_content": {
+                "type": "string"
+              },
+              "total": {
+                "type": "string"
+              }
+            },
+            "query": "{IterationItem:DictTableStart@item}",
+            "similarity_threshold": 0.2,
+            "top_n": 3,
+            "vector_similarity_weight": 0.3
+          },
+          "label": "",
+          "name": "TableDictFetch"
+        },
+        "dragging": false,
+        "extent": "parent",
+        "id": "Retrieval:TableDictFetch",
+        "measured": {
+          "height": 96,
+          "width": 200
+        },
+        "parentId": "Iteration:DictPerTable",
+        "position": {
+          "x": 240,
+          "y": 80
+        },
+        "resizing": false,
+        "selected": false,
+        "sourcePosition": "right",
+        "targetPosition": "left",
+        "type": "retrievalNode"
+      }
+    ],
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 0.5
+    }
+  },
+  "history": [],
+  "id": "",
+  "messages": [],
+  "reference": [],
+  "title": "新博数据管家_问数_深度思考_v1.2.0",
+  "update_date": "2026-03-14",
+  "update_time": 1741939200
+}
