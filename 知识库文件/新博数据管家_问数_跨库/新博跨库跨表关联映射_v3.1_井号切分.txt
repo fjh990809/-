@@ -1,0 +1,52 @@
+###映射总览
+- 报表库：darm_（14表）
+- ODS库：gjdt_jd_ + ldly_ + jtsjzy_ + dim_
+- 跨库规则：darm 与 ODS 禁止同SQL JOIN，必须分SQL执行后融合
+
+###关联键优先级
+- 强关联键：device_id/deviceId，section_id/sectionId/waysection_id，laneId/laneid/laneHex/lane_no，stationId/stationid/station_no
+- 中关联键：road_no 与 sectionRoadNo/laneRoadNo，mile_post/stake/mp_value/startStake/endStake，org_id/orgId，direction_no/sectionDirection
+- 弱关联键：year/projectYear/DATE_FORMAT(create_time,'%Y')，contractSectionName/contractor/projectName
+- 不建议硬关联：remarks/fault_des 等自由文本字段
+
+###实体映射_摄像枪
+- 机电：gjdt_jd_base_camera（device_id, section_id, road_no, commonDelStatus）
+- 路运：ldly_base_d_camera（device_id, road_no, station_no, commonDelStatus）
+- 原始：jtsjzy_camera（assetsCode, sectionId, nationalRoadCode）
+- 建议：先分系统统计，再按路段维度标准化对齐；assetsCode 与 device_id 默认不做强绑定
+
+###实体映射_车道
+- 报表：darm_lane_log_four_index（laneId, dateId）
+- 机电：gjdt_jd_base_tolllane（laneNum, laneHex, sectionid, stationid）
+- 机电状态：gjdt_jd_monitor_lanestatus（laneid, sectionid, tollstationid）
+- 路运：ldly_base_d_lane_pilot_lamp（lane_no, road_no, station_no）
+- 原始：jtsjzy_tollLane（laneId, laneHex, laneNo, stationId, sectionId）
+- 建议：ODS内先用 laneId/laneHex 对齐；报表与ODS按时间+车道并列分析
+
+###实体映射_路段收费站
+- 机电：gjdt_jd_base_waysection（waysection_id, sectionid, waysection_no）
+- 路运：多数设备表含 road_no / station_no
+- 原始：jtsjzy_tollSection（sectionId），jtsjzy_tollStation（stationId）
+- 建议：构建 section_key 与 station_key 再做对齐
+
+###实体映射_故障告警
+- 机电主表：gjdt_jd_ops_order_fault_info（id, section_id, fault_level, status）
+- 机电新粤：gjdt_jd_ops_order_fault_info_xy（faultid, waysection_id, faultlevel）
+- 路运状态：ldly_cur_device_status / ldly_his_device_status（device_id, status, fault_status）
+- 建议：设备维度优先 device_id，路段维度优先 section_key
+
+###实体映射_养护技术评分
+- 报表：darm_equipment_maintenance, darm_technology_status, darm_equipment_main_technology_status_1
+- 机电：gjdt_jd_base_daily_maintain_point / gjdt_jd_base_daily_maintain_section
+- 建议：跨库按 year/projectYear 做趋势对齐，区段名称仅弱匹配对比
+
+###融合口径规则
+- 先加来源标签：darm/gjdt_jd/ldly/jtsjzy
+- 同口径可汇总，不同口径只并列比较
+- 无法直接关联时必须显式说明“不可直接关联”
+
+###SQL防错清单
+- 表名必须来自DDL真实清单
+- 禁止幻觉表名：gjdt_jd_fault_order（不存在）
+- 逻辑删除优先用 DDL 中真实字段（如 commonDelStatus='0'）
+- 字段不确定时降级：SELECT * FROM 真实表 LIMIT 20;

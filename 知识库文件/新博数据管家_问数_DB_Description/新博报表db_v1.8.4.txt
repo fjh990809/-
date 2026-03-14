@@ -1,0 +1,214 @@
+###darm_contract_ledger
+合同管理台账，用于记录合同基本信息、支付情况、结算状态、发包方式和资质情况，支持查询所有合同的合同编号、名称、乙方名称、签订时间、合同金额、结算金额、累计支付金额及支付比例，可查询已结算合同及按发包方式、结算情况、资质情况等条件筛选合同，支持统计合同总数、已结算合同数量及金额，按乙方或发包方式统计合同数量及金额，支持按合同编号、合同名称、乙方名称等多维度查询合同详情，并可计算支付比例、结算比例，统计累计支付总金额、结算总金额及合同金额与结算金额的差额，支持按签订时间、乙方、发包方式、结算情况、资质情况等多维度进行统计分析:
+-id：主键ID。
+-contractNumber：合同编号，支持按编号精确查询。
+-contractName：合同名称，支持按名称模糊查询。
+-counterpartyName：乙方（丙方）名称，支持按乙方分组统计。
+-signingDate：签订时间，支持按年份、月份、具体日期查询。
+-contractAmount：合同金额（元）。
+-settlementAmount：结算金额（元）。
+-cumulativePaymentAmount：累计支付金额，用于计算支付比例。
+-isQualified：是否符合资质要求。
+-awardingMethod：发包方式。
+-settlementStatus：结算情况（已结算/未结算）。
+-remarks：备注。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_budget
+预算表，用于存储和管理年度预算编制、调整、执行及完成情况，记录年初预算、批复预算、调整金额及调整后预算，按季度记录预算执行进度，支持预算完成率计算与分析，支持按年份、预算编码、项目名称等多维度查询、统计和对比预算数据，可统计预算总额、完成总额、调整总额及各维度完成率，支持预算完成率区间筛选、排名分析及预算调整方向（正负）查询，适用于预算执行情况的全面监控与决策支持:
+-id: 主键，自增
+-year: 填写年份，支持按年份筛选
+-budgetCode: 预算编码，与预算编码关系表关联
+-initialAnnualBudget: 本年度预算数（年初）
+-approvedAnnualBudget: 本年度预算数（批复）
+-budgetAdjustment: 预算调整数
+-adjustedBudget: 调整后预算数（计算公式：本年度预算数（批复）+ 预算调整数），用于计算预算完成率
+-q1Completion: 第一季度完成数
+-q2Completion: 第二季度完成数
+-q3Completion: 第三季度完成数
+-q4Completion: 第四季度完成数
+-budgetCompletion: 预算完成数（可能是四个季度完成数的总和，或者实际完成数），用于计算完成比例
+-remarks: 备注
+-isDeleted: 删除标志，值说明：Y/N，默认N表示未删除，查询时自动过滤已删除记录
+-createTime: 创建时间
+-updateTime: 更新时间
+
+
+
+###darm_budget_code_mapping
+预算编码关系表，用于存储预算编码与项目名称的层级关系，支持按项目名称、年份、父级编码等多维度查询预算编码信息，可统计预算编码数量、完成情况及完成率，支持预算完成率的分组、排名和季度对比分析，满足预算数据的关联与统计需求：:
+-year：填写年份。
+-budgetCode：预算编码。
+-projectName：项目名称，用于按子项目分组统计。
+-parentBudgetCode：父级预算编码。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_plan
+计划表，用于存储和管理年度计划编制、执行和完成情况的数据，记录年初计划数、批复计划数、计划调整数、调整后计划数及各季度完成数，支持计划完成率的计算与分析，记录数据的创建和更新时间，支持按年份、计划编码、项目名称等多维度查询、统计和对比分析，可统计计划总数、计划总额、各季度完成总额及整体完成率，并支持按项目名称、年份进行排名和完成情况对比，支持查询特定年份或计划编码的详细信息，支持计算和筛选不同完成率区间的计划，支持统计调整前后计划总额及完成总额，支持与预算数据进行对比分析，满足多维度、多粒度的计划管理需求:
+year: 填写年份
+planCode: 计划编码
+initialAnnualBudget: 本年度计划数（年初）
+approvedAnnualBudget: 本年度计划数（批复）
+budgetAdjustment: 计划调整数
+adjustedBudget: 调整后计划数（计算公式：本年度计划数（批复）+ 计划调整数），用于计算计划完成率
+q1Completion: 第一季度完成数
+q2Completion: 第二季度完成数
+q3Completion: 第三季度完成数
+q4Completion: 第四季度完成数
+budgetCompletion: 计划完成数（可能是四个季度完成数的总和，或者实际完成数），用于计算完成比例
+remarks: 备注
+isDeleted: 删除标志，值说明：默认为'N'，表示未删除，查询时自动过滤已删除记录
+createTime: 创建时间
+updateTime: 更新时间
+
+
+
+###darm_plan_progress
+形象进度完成表（按计划口径），用于记录计划口径下的形象进度完成情况，包括年初计划数、批复计划数、计划调整过程及调整后金额，按季度记录执行进度和完成情况，支持计算计划完成率和整体完成率，统计各季度完成总额及总完成额，支持按年份、计划编码、项目名称等多维度查询、统计和对比分析，支持与预算形象进度进行对比，记录数据的创建和更新历史:
+year: 填写年份
+planCode: 计划编码
+initialAnnualBudget: 本年度计划数（年初）
+approvedAnnualBudget: 本年度计划数（批复）
+budgetAdjustment: 计划调整数
+adjustedBudget: 调整后计划数（计算公式：本年度计划数（批复）+ 计划调整数），用于计算形象进度完成率
+q1Completion: 第一季度完成数
+q2Completion: 第二季度完成数
+q3Completion: 第三季度完成数
+q4Completion: 第四季度完成数
+budgetCompletion: 计划完成数（可能是四个季度完成数的总和，或者实际完成数），用于计算完成比例
+remarks: 备注
+isDeleted: 删除标志，值说明：默认为'N'，表示未删除，查询时自动过滤已删除记录
+createTime: 创建时间
+updateTime: 更新时间
+
+
+
+###darm_plan_code_mapping
+计划编码关系表，用于存储计划编码与项目名称的层级关系，支持按项目名称、年份、父级编码等多维度查询和统计计划编码数量及完成情况，可计算计划完成率并进行排名分析，支持与预算数据对比分析及按季度统计完成进度：:
+-year：填写年份。
+-planCode：计划编码。
+-projectName：项目名称，用于按子项目分组统计。
+-parentPlanCode：父级计划编码。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_plan_progress_code_mapping
+形象进度完成编码关系表（按计划口径），用于存储计划进度编码的层级关系、项目信息及完成情况，支持查询所有计划进度编码关系及项目名称，统计记录数，按项目名称、年份及季度分析形象进度完成情况，支持与预算完成情况的对比分析，并可生成年度计划完成比例低于100%的形象进度完成情况报告:
+-year：填写年份。
+-planCode：计划编码。
+-projectName：项目名称，用于按子项目分组统计。
+-parentPlanCode：父级计划编码。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_budget_progress
+形象进度完成表（按预算口径），用于记录预算口径下的形象进度完成情况，涵盖年初预算、批复预算、预算调整及调整后金额等基础数据，按季度记录执行进度和完成情况，支持预算完成率的计算与分析，支持按年份、预算编码、项目名称等多维度查询、统计、对比分析及数据变更历史追溯，适用于统计记录数、完成总额、各季度完成情况、子项目完成率等综合分析需求:
+-year: 填写年份
+-budgetCode: 预算编码
+-initialAnnualBudget: 本年度预算数（年初）
+-approvedAnnualBudget: 本年度预算数（批复）
+-budgetAdjustment: 预算调整数
+-adjustedBudget: 调整后预算数（计算公式：本年度预算数（批复）+ 预算调整数），用于计算形象进度预算完成率
+-q1Completion: 第一季度完成数
+-q2Completion: 第二季度完成数
+-q3Completion: 第三季度完成数
+-q4Completion: 第四季度完成数
+-budgetCompletion: 预算完成数（可能是四个季度完成数的总和，或者实际完成数），用于计算完成比例
+-remarks: 备注
+-isDeleted: 删除标志，值说明：默认为'N'，表示未删除，查询时自动过滤已删除记录
+-createTime: 创建时间
+-updateTime: 更新时间
+
+
+
+###darm_budget_progress_code_mapping
+形象进度完成编码关系表（按预算口径），用于存储预算进度编码的层级关系、项目信息及各季度预算与计划完成情况，支持查询所有预算进度编码关系及项目名称，统计记录数，并按项目名称、年份、季度分析预算形象进度完成情况，计算预算完成率，生成预算完成比例（调整后）<100%的完成情况分析:
+-year：填写年份。
+-budgetCode：预算编码。
+-projectName：项目名称，用于按子项目分组统计。
+-parentBudgetCode：父级预算编码。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_equipment_maintenance
+机电日养汇总表，用于记录机电日常养护的合同、结算、评分及技术状况评定信息，支持查询所有机电日养信息及关键字段（承包人、实施年度、合同金额、结算金额、评分等），可按承包人、年度分组统计合同金额、结算金额及平均评分，支持计算养护效益比例、考核评价及综合评分分析，支持多维度筛选与对比查询（如评分高低、承包人对比、年度趋势等）:
+-id：主键ID。
+-contractor：承包人名称，支持按承包人分组统计。
+-projectYear：实施年度，支持按年度筛选。
+-contractAmount：合同金额（元）。
+-settlementAmount：年结算金额（元），用于计算养护效益比例。
+-contractSectionScore：合同段评分（0-100分），用于考核评价。
+-remarks：备注。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_technology_status
+技术状况评定汇总，用于记录各合同段的技术状况评定信息，包括承包人、项目实施年度、合同金额及评分，支持按承包人、年度、合同段等多维度查询和统计评定数量、平均评分及合同总额，可筛选特定评分区间或承包人（如广东交科检测有限公司）的评定数据，并支持与机电日养数据的对比分析及综合统计：:
+-id：主键ID。
+-contractor：承包人，支持按承包人分组统计。
+-projectYear：项目实施年度，支持按年度筛选。
+-contractSectionName：合同段名称。
+-contractAmount：合同额（元）。
+-contractSectionScore：合同段评分（0-100分），用于计算平均技术状况评分。
+-remarks：备注。
+-createTime：创建时间。
+-updateTime：更新时间。
+
+
+
+###darm_lane_log_four_index
+养护考核指标汇总表，用于记录各车道通行效率、交易成功率、车牌识别准确率等养护考核相关指标，支持按车道编码、日期、时段等多维度查询车流量、交易数、特情数、上传及时率等数据，支持统计总车流量、交易成功率、牌识准确率等指标，支持按车道分析性能表现并进行考核评估，支持查询特定车道或时段的详细考核指标及异常情况，支持统计记录数、车流量、交易成功率、牌识准确率、上传及时率等关键指标，支持按车道、时段、指标类型进行多维度统计分析和异常车道筛选:
+-dateId: 通行时段
+-laneId: 车道编码
+-tradeSucNum: 扣款交易成功数
+-initiatedTransNum: 发起交易数
+-vehCount: 车流量
+-nextTradeNum: 邻道已交易数量
+-plateIdentifySucNum: 牌识准确数
+-plateCaptureSucNum: 牌识捕获数
+-exFlowUpTimelyNum: 车道出口交易上传及时数
+-exFlowTotalNum: 车道出口交易上传总数
+-outRateNum: 兜底费率使用数
+-specialTypeNum: 特情总数
+-avgAntennaTradeTime: 天线核心交易时间
+-avgSpeed: 平均车速
+-updateTime: 更新时间
+
+
+
+###darm_equipment_asses_ind_entryreje
+集团养护考核指标表，用于记录入口拒超设施正常率、上云视频接入率等关键考核指标，支持按年度、季度、指标类型等多维度查询和统计分析，可统计记录数、平均值，查询特定年份或季度的指标数据，支持异常值筛选、最高值查询及指标趋势分析，适用于高速路段如新博高速的考核数据管理:
+-id: 主键
+-entryRejeFacAvailability: 入口拒超设施正常率
+-cloudVideoAccessRate: 上云视频接入率
+-year: 填写年度
+-quarter: 填写季度
+-remarks: 备注
+-createTime: 创建时间
+-updateTime: 更新时间
+
+
+
+###darm_equipment_main_technology_status_1
+1中心考核表，用于记录路段机电运维技术服务、路段监控联网技术服务、路段网络安全技术支持服务及集团机房运维的年度评分数据，支持查询所有考核信息、按年度或服务类型筛选评分、统计考核记录数及平均评分，支持查询特定年度或高分/低分年度的评分情况，并可查询各项服务的最高评分记录及评分达标年份:
+-id: 主键id
+-year: 年度
+-equipment_main_score: 路段机电运维技术服务评分（100分）
+-monitor_network_score: 路段监控联网技术服务评分（15分）
+-net_machine_safe_score: 路段网络安全技术支持服务及集团机房运维（15分）
+-createTime: 创建时间
+-updateTime: 更新时间

@@ -1,0 +1,189 @@
+CREATE TABLE `darm_contract_ledger` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `contractNumber` varchar(20) NOT NULL COMMENT '合同编号',
+  `contractName` varchar(200) NOT NULL COMMENT '合同名称',
+  `counterpartyName` varchar(200) NOT NULL COMMENT '乙方（丙方）名称',
+  `signingDate` datetime NOT NULL COMMENT '签订时间',
+  `contractAmount` decimal(12,2) NOT NULL COMMENT '合同金额（元）',
+  `settlementAmount` decimal(12,2) DEFAULT NULL COMMENT '结算金额（元）',
+  `cumulativePaymentAmount` decimal(12,2) DEFAULT NULL COMMENT '累计支付金额',
+  `isQualified` varchar(20) DEFAULT NULL COMMENT '是否符合资质要求',
+  `awardingMethod` varchar(20) DEFAULT NULL COMMENT '发包方式',
+  `settlementStatus` varchar(20) DEFAULT NULL COMMENT '结算情况',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='合同管理台账，用于记录合同基本信息、支付情况、结算状态、发包方式及资质情况，支持查询所有合同的合同编号、名称、乙方名称、签订时间、合同金额、结算金额、累计支付金额及发包方式，可查询已结算合同及按合同编号、合同名称、乙方名称等多维度查询合同详情，支持统计合同总数、已结算合同数量及总金额，按乙方、发包方式、结算情况、资质情况统计合同数量及金额，计算支付比例、结算比例，分析支付比例超过80%或低于50%的合同，结算比例超过100%的合同，统计合同总金额、平均金额、结算总金额、累计支付总金额，查询合同金额最大/最小的合同，统计合同金额与结算金额的差额，支持按签订时间（如2025年11月）统计每个乙方的累计支付比例，支持按合同编号、乙方名称、发包方式、资质情况等条件筛选和统计合同信息:';
+CREATE TABLE darm_budget (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键',
+    year VARCHAR(10) COMMENT '填写年份',
+    budgetCode VARCHAR(20) COMMENT '预算编码',
+    initialAnnualBudget DECIMAL(12,2) COMMENT '本年度预算数（年初）',
+    approvedAnnualBudget DECIMAL(12,2) COMMENT '本年度预算数（批复）',
+    budgetAdjustment DECIMAL(12,2) COMMENT '预算调整数',
+    adjustedBudget DECIMAL(12,2) COMMENT '调整后预算数',
+    q1Completion DECIMAL(12,2) COMMENT '第一季度完成数',
+    q2Completion DECIMAL(12,2) COMMENT '第二季度完成数',
+    q3Completion DECIMAL(12,2) COMMENT '第三季度完成数',
+    q4Completion DECIMAL(12,2) COMMENT '第四季度完成数',
+    budgetCompletion DECIMAL(12,2) COMMENT '预算完成数',
+    remarks VARCHAR(1000) COMMENT '备注',
+    isDeleted VARCHAR(2) DEFAULT '0' COMMENT '删除标志，Y/N，默认N表示未删除，查询时自动过滤已删除记录',
+    createTime DATETIME COMMENT '创建时间',
+    updateTime DATETIME COMMENT '更新时间'
+) COMMENT '预算表，用于存储和管理年度预算编制、调整、执行及完成情况，记录年初预算、批复预算、调整金额及调整后预算，按季度记录预算执行进度，支持预算完成率计算与分析，支持按年份、预算编码、项目名称等多维度查询、统计和对比预算数据，可统计预算总额、完成总额、调整总额及各维度完成率，支持预算完成情况排名与跨年度对比:';
+CREATE TABLE `darm_budget_code_mapping` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `budgetCode` varchar(20) NOT NULL COMMENT '预算编码',
+  `projectName` varchar(100) DEFAULT NULL COMMENT '项目名称',
+  `parentBudgetCode` varchar(20) NOT NULL COMMENT '父级预算编码',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`budgetCode`,`parentBudgetCode`) USING BTREE
+) COMMENT='预算编码关系表，用于存储预算编码与项目名称的层级关系，支持按项目名称、年份、父级编码等多维度查询预算编码信息，支持统计预算编码记录总数、按项目名称统计预算编码数量及完成情况，支持查询各年份、各项目、各季度的预算完成情况及完成率，支持项目间预算完成情况对比分析与排名统计：';
+CREATE TABLE `darm_plan_code_mapping` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `planCode` varchar(20) NOT NULL COMMENT '计划编码',
+  `projectName` varchar(100) DEFAULT NULL COMMENT '项目名称',
+  `parentPlanCode` varchar(20) NOT NULL COMMENT '父级计划编码',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`planCode`,`parentPlanCode`) USING BTREE
+) COMMENT='计划编码关系表，用于存储计划编码与项目名称的层级关系，支持按项目名称、年份、父级编码等多维度查询和统计计划编码数量及完成情况，可计算计划完成率并进行排名分析，支持与预算数据对比分析及按季度统计完成进度：';
+CREATE TABLE `darm_plan` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `planCode` varchar(20) NOT NULL COMMENT '计划编码',
+  `initialAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度计划数（年初）',
+  `approvedAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度计划数（批复）',
+  `budgetAdjustment` decimal(12,2) DEFAULT NULL COMMENT '计划调整数',
+  `adjustedBudget` decimal(12,2) DEFAULT NULL COMMENT '调整后计划数',
+  `q1Completion` decimal(12,2) DEFAULT NULL COMMENT '第一季度完成数',
+  `q2Completion` decimal(12,2) DEFAULT NULL COMMENT '第二季度完成数',
+  `q3Completion` decimal(12,2) DEFAULT NULL COMMENT '第三季度完成数',
+  `q4Completion` decimal(12,2) DEFAULT NULL COMMENT '第四季度完成数',
+  `budgetCompletion` decimal(12,2) DEFAULT NULL COMMENT '计划完成数',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `isDeleted` varchar(2) DEFAULT 'N' COMMENT '删除标志（Y:已删除/N:未删除）',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`planCode`) USING BTREE
+) COMMENT='计划表，用于存储和管理年度计划编制、执行和完成情况，记录年初计划数、批复计划数、计划调整数及调整后计划数，按季度记录计划完成情况，支持计划完成率计算与分析，支持按年份、计划编码、项目名称等多维度查询、统计和对比分析，可统计计划总数、计划总额及各季度完成总额，支持按项目名称、年份进行计划完成率排名和趋势分析，支持预算与计划完成情况的对比分析:';
+CREATE TABLE `darm_plan_progress` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `planCode` varchar(20) NOT NULL COMMENT '计划编码',
+  `initialAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度计划数（年初）',
+  `approvedAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度计划数（批复）',
+  `budgetAdjustment` decimal(12,2) DEFAULT NULL COMMENT '计划调整数',
+  `adjustedBudget` decimal(12,2) DEFAULT NULL COMMENT '调整后计划数',
+  `q1Completion` decimal(12,2) DEFAULT NULL COMMENT '第一季度完成数',
+  `q2Completion` decimal(12,2) DEFAULT NULL COMMENT '第二季度完成数',
+  `q3Completion` decimal(12,2) DEFAULT NULL COMMENT '第三季度完成数',
+  `q4Completion` decimal(12,2) DEFAULT NULL COMMENT '第四季度完成数',
+  `budgetCompletion` decimal(12,2) DEFAULT NULL COMMENT '计划完成数',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `isDeleted` varchar(2) DEFAULT 'N' COMMENT '删除标志（Y:已删除/N:未删除）',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`planCode`) USING BTREE
+) COMMENT='形象进度完成表（按计划口径），用于记录计划口径下的形象进度完成情况，包括年初计划数、批复计划数、计划调整过程及调整后金额，按季度记录执行进度和完成情况，支持计算计划完成率及整体完成率，统计各季度完成总额和总完成额，支持按年份、计划编码、项目名称等多维度查询、统计和对比分析，支持与预算形象进度进行对比，记录数据的创建和更新历史，支持生成特定年度或项目下的完成情况报表及完成比例分析:';
+CREATE TABLE `darm_plan_progress_code_mapping` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `planCode` varchar(20) NOT NULL COMMENT '计划编码',
+  `projectName` varchar(100) DEFAULT NULL COMMENT '项目名称',
+  `parentPlanCode` varchar(20) NOT NULL COMMENT '父级计划编码',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`planCode`,`parentPlanCode`) USING BTREE
+) COMMENT='形象进度完成编码关系表（按计划口径），用于存储计划进度编码的层级关系、项目信息及各季度完成情况，支持查询所有计划进度编码关系及项目名称，统计记录数，按项目名称、年份及季度分析形象进度完成情况，支持与预算完成情况的对比分析，并可用于生成年度计划完成比例分析报告:';
+CREATE TABLE `darm_budget_progress_code_mapping` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `budgetCode` varchar(20) NOT NULL COMMENT '预算编码',
+  `projectName` varchar(100) DEFAULT NULL COMMENT '项目名称',
+  `parentBudgetCode` varchar(20) NOT NULL COMMENT '父级预算编码',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`year`,`budgetCode`,`parentBudgetCode`) USING BTREE
+) COMMENT='形象进度完成编码关系表（按预算口径），用于存储预算进度编码的层级关系、项目信息及各季度完成数据，支持查询所有预算进度编码关系及项目名称，按项目名称、年份统计和对比预算与计划完成情况，分析各季度进度完成率，计算子项目预算完成比例，并生成年度预算完成比例（调整后）<100%的完成情况分析:';
+CREATE TABLE `darm_budget_progress` (
+  `year` varchar(10) NOT NULL COMMENT '填写年份',
+  `budgetCode` varchar(20) NOT NULL COMMENT '预算编码',
+  `initialAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度预算数（年初）',
+  `approvedAnnualBudget` decimal(12,2) DEFAULT NULL COMMENT '本年度预算数（批复）',
+  `budgetAdjustment` decimal(12,2) DEFAULT NULL COMMENT '预算调整数',
+  `adjustedBudget` decimal(12,2) DEFAULT NULL COMMENT '调整后预算数',
+  `q1Completion` decimal(12,2) DEFAULT NULL COMMENT '第一季度完成数',
+  `q2Completion` decimal(12,2) DEFAULT NULL COMMENT '第二季度完成数',
+  `q3Completion` decimal(12,2) DEFAULT NULL COMMENT '第三季度完成数',
+  `q4Completion` decimal(12,2) DEFAULT NULL COMMENT '第四季度完成数',
+  `budgetCompletion` decimal(12,2) DEFAULT NULL COMMENT '预算完成数',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `isDeleted` varchar(2) DEFAULT 'N' COMMENT '删除标志（Y:已删除/N:未删除）',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) COMMENT='形象进度完成表（按预算口径），用于记录预算口径下的形象进度完成情况，涵盖年初预算、批复预算、预算调整及调整后金额等基础数据，按季度记录执行进度和完成情况，支持预算完成率的计算与分析，支持按年份、预算编码、项目名称等多维度查询、统计、对比分析及数据变更历史追溯，适用于统计记录数、完成总额、各季度完成情况、子项目完成率等综合分析需求:';
+CREATE TABLE `darm_equipment_maintenance` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `contractor` varchar(100) NOT NULL COMMENT '承包人名称',
+  `projectYear` varchar(4) NOT NULL COMMENT '实施年度',
+  `contractAmount` decimal(15,2) DEFAULT NULL COMMENT '合同金额（元）',
+  `settlementAmount` decimal(15,2) DEFAULT NULL COMMENT '年结算金额（元）',
+  `contractSectionScore` decimal(5,2) DEFAULT NULL COMMENT '合同段评分（0-100分）',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='机电日养汇总，用于记录机电日常养护的合同、结算、评分及技术状况评定信息，支持查询所有机电日养信息及关键指标（合同金额、结算金额、评分），可按承包人、年度分组统计合同金额、结算金额及平均评分，支持计算养护效益比例、考核评价及综合评分分析，支持多维度筛选与对比查询（如评分高低、承包人对比、年度趋势等）:';
+CREATE TABLE `darm_technology_status` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `contractor` varchar(100) NOT NULL COMMENT '承包人',
+  `projectYear` varchar(4) NOT NULL COMMENT '项目实施年度',
+  `contractSectionName` varchar(200) NOT NULL COMMENT '合同段名称',
+  `contractAmount` decimal(15,2) DEFAULT NULL COMMENT '合同额（元）',
+  `contractSectionScore` decimal(5,2) DEFAULT NULL COMMENT '合同段评分（0-100分）',
+  `remarks` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='技术状况评定汇总，用于记录各合同段的技术状况评定信息，包括承包人、项目实施年度、合同金额及评分，支持按承包人、年度、合同段等多维度查询和统计评定数量、平均评分及合同总额，可筛选特定评分区间或承包人（如广东交科检测有限公司）的评定数据，并支持与机电日养数据的对比分析及综合统计：';
+CREATE TABLE `darm_lane_log_four_index` (
+  `dateId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '通行时段',
+  `laneId` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车道编码',
+  `tradeSucNum` bigint DEFAULT NULL COMMENT '扣款交易成功数',
+  `initiatedTransNum` bigint DEFAULT NULL COMMENT '发起交易数',
+  `vehCount` bigint DEFAULT NULL COMMENT '车流量',
+  `nextTradeNum` bigint DEFAULT NULL COMMENT '邻道已交易数量',
+  `plateIdentifySucNum` bigint DEFAULT NULL COMMENT '牌识准确数',
+  `plateCaptureSucNum` bigint DEFAULT NULL COMMENT '牌识捕获数',
+  `exFlowUpTimelyNum` bigint DEFAULT NULL COMMENT '车道出口交易上传及时数',
+  `exFlowTotalNum` bigint DEFAULT NULL COMMENT '车道出口交易上传总数',
+  `outRateNum` bigint DEFAULT NULL COMMENT '兜底费率使用数',
+  `specialTypeNum` bigint DEFAULT NULL COMMENT '特情总数',
+  `avgAntennaTradeTime` double(10,2) DEFAULT NULL COMMENT '天线核心交易时间',
+  `avgSpeed` double(10,2) DEFAULT NULL COMMENT '平均车速',
+  `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`dateId`,`laneId`) USING BTREE,
+  KEY `idx_lane` (`laneId`) USING BTREE,
+  KEY `idx_date` (`dateId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='养护考核指标汇总表，用于记录车道通行效率、交易成功率、车牌识别准确率等养护考核相关指标数据，支持按车道编码、时段等多维度查询车流量、交易数、牌识数、特情数、平均车速、天线交易时间等信息，支持统计记录总数、车流量总数、邻道交易总数、扣款交易成功数、牌识准确数、牌识捕获数、兜底费率使用数等，支持计算车道及整体的交易成功率、牌识准确率、出口交易上传及时率，支持查询异常指标车道（如成功率低于阈值），并支持按车道、时段进行多维度统计分析:';
+CREATE TABLE `darm_equipment_asses_ind_entryreje` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `entryRejeFacAvailability` decimal(17,2) DEFAULT NULL COMMENT '入口拒超设施正常率',
+  `cloudVideoAccessRate` decimal(17,2) DEFAULT NULL COMMENT '上云视频接入率',
+  `year` int DEFAULT NULL COMMENT '填写年度',
+  `quarter` int DEFAULT NULL COMMENT '填写季度',
+  `remarks` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '备注',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `updateTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='集团养护考核指标表，用于记录入口拒超设施正常率、上云视频接入率等关键指标，支持按年度、季度、指标类型等多维度查询和统计分析，可统计记录数、平均值，查询特定年份或季度数据，支持异常值筛选、最高值查询及多维度指标对比分析:';
+CREATE TABLE `darm_equipment_main_technology_status_1` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `year` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '年度',
+  `equipment_main_score` decimal(10,2) DEFAULT NULL COMMENT '路段机电运维技术服务评分（100分）',
+  `monitor_network_score` decimal(10,2) DEFAULT NULL COMMENT '路段监控联网技术服务评分（15分）',
+  `net_machine_safe_score` decimal(10,2) DEFAULT NULL COMMENT '路段网络安全技术支持服务及集团机房运维（15分）',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='1中心考核表，用于记录路段机电运维技术服务、路段监控联网技术服务、路段网络安全技术支持服务及集团机房运维的年度评分情况，支持查询所有考核信息及按年度、服务类型组合筛选，可统计考核记录总数、各服务类型的平均评分、最高评分及低于或高于特定阈值的年度记录，支持按年度分析评分趋势及各项服务的评分表现:';

@@ -1,0 +1,679 @@
+###jtsjzy_camera
+摄像枪设备表，用于记录数据资源管理平台中摄像枪设备的资产信息、系统分类、地理位置、IP配置及状态信息，支持按资产编码、名称、路段方向、桩号、管理状态、类型、品牌、供应商、路段编号、路线编号、所属公司、规格型号、系统分类、子系统分类、使用类型、安装类型、高清卡口所处服务区出入口类型等多维度查询和统计分析，支持统计设备总数及按类型、管理状态、品牌、系统分类、子系统分类、使用类型、安装类型、路段方向、供应商、路段、规格型号等维度进行分类统计，可查询设备的三维位置、高程、属主系统主键、数据状态、版本、经度、纬度、经纬度位置等详细信息:
+-assetsCode: 资产编码
+-assetsType: 资产类型
+-cameraName: 摄像枪名称
+-sectionDirection: 路段方向
+-stake: 桩号
+-adminStatus: 设备管理状态
+-cameraType: 摄像枪类型
+-cameraUseType: 摄像枪使用类型
+-installType: 安装类型
+-installFacilitiesAssetsCode: 安装设施资产编码
+-specModel: 规格型号
+-systemType: 机电系统分类
+-systemName: 机电系统分类名称
+-subSystemType: 机电子系统分类
+-subSystemName: 机电子系统分类名称
+-brandName: 品牌信息名称
+-supplier: 供应商
+-positionType: 高清卡口所处服务区出入口类型
+-ipAddress: IP地址组合
+-sectionId: 收费路段编号
+-nationalRoadCode: 路线编号
+-orgId: 所属公司编码
+-longitude: 经度
+-latitude: 纬度
+-altitude: 高程
+-ownerSystemPrimaryKey: 属主系统主键
+
+
+###jtsjzy_tunnel
+隧道表，用于记录隧道的基本信息、位置信息、建设信息和养护管理信息，包括资产编码、隧道编号、名称、路段方向、桩号、技术参数、管理状态及参建单位等，支持按资产编码、隧道编号、名称、路段方向、桩号、管理状态、参建单位、路线编号、所属公司编码等多维度查询，可统计隧道总数及按类型、路段方向等分类统计，支持查询隧道的资产类型、编号、名称、起点桩号、中心桩号、终点桩号、设施管理状态、类型、长度、净宽、净高、车道数、设计时速、建成日期、通车日期、建设单位、设计单位、施工单位、监理单位、监管单位、养护单位、收费路段编号、路线编号、所属公司编码及起点经度等详细信息:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-tunnelId: 隧道编号，用于查询隧道编号、唯一标识隧道
+-tunnelName: 隧道名称，用于查询隧道名称、按名称模糊搜索隧道
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-tunnelType: 隧道类型，用于查询隧道类型、按隧道类型筛选和分组统计
+-tunnelLength: 隧道长度，用于查询隧道长度、按隧道长度排序和筛选
+-tunnelClearWidth: 隧道净宽，用于查询隧道净宽
+-tunnelClearHeight: 隧道净高，用于查询隧道净高
+-tunnelLaneNumber: 隧道车道数，用于查询隧道车道数
+-tunnelDesignSpeed: 隧道设计时速，用于查询隧道设计时速
+-tunnelCompletionDate: 隧道建成日期，用于查询隧道建成日期、按建成日期排序和筛选
+-tunnelOpenDate: 隧道通车日期，用于查询隧道通车日期
+-tunnelConstrEntityName: 隧道建设单位名称，用于查询隧道建设单位名称、按建设单位筛选
+-tunnelDesignInstName: 隧道设计单位名称，用于查询隧道设计单位名称、按设计单位筛选
+-tunnelConstrContractorName: 隧道施工单位名称，用于查询隧道施工单位名称、按施工单位筛选
+-tunnelConstrSupvEntityName: 隧道监理单位名称，用于查询隧道监理单位名称、按监理单位筛选
+-tunnelGoverRegAuthName: 隧道监管单位名称，用于查询隧道监管单位名称、按监管单位筛选
+-tunnelMaintContractorName: 隧道养护单位名称，用于查询隧道养护单位名称、按养护单位筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-startLongitude: 起点经度，用于查询起点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-startAltitude: 起点高程，用于查询起点高程
+-centerLongitude: 中心经度，用于查询中心经度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-centerAltitude: 中心高程，用于查询中心高程
+-endLongitude: 终点经度，用于查询终点经度
+-endLatitude: 终点纬度，用于查询终点纬度
+-endAltitude: 终点高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollStation
+收费站，用于记录收费站基本信息、位置信息、技术参数和运营状态，包括编号、名称、类型、桩号、资产编码、实体类型、归属区域、物理序号、支路编码、收费广场数量及各类标志信息，支持按编号、名称、资产编码、类型、桩号、标志状态等多维度查询和统计分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-stationId: 收费站编号，用于查询收费站编号、唯一标识收费站
+-stationName: 收费站名称，用于查询收费站名称、按名称筛选和分组统计
+-stationStandardName: 收费站收费标准中站名称，用于查询收费站收费标准中站名称、按标准名称筛选
+-stake: 主线桩号，用于查询桩号位置、按桩号筛选
+-stationStatus: 收费站使用状态，用于查询收费站使用状态、按使用状态筛选
+-stationType: 收费站类型，用于查询收费站类型、按收费站类型筛选
+-stationRealType: 收费站实体类型，用于查询收费站实体类型、按实体类型筛选
+-stationProperties: 收费站属性，用于查询收费站属性、按收费站属性筛选
+-stationProvinceType: 收费站省界标志，用于查询收费站省界标志、按省界标志筛选
+-stationNetRoadId: 收费站归属区域编码，用于查询收费站归属区域编码、按区域筛选
+-stationRoadNo: 收费站省内路段编号，用于查询收费站省内路段编号、按路段编号筛选
+-stationNo: 收费站省内站编号，用于查询收费站省内站编号、按站编号筛选
+-stationHex: 收费站HEX字符串，用于查询收费站HEX字符串、按HEX筛选
+-stationBranchId: 收费站支路编码，用于查询收费站支路编码、按支路筛选
+-stationIndex: 收费站物理序号，用于查询收费站物理序号、按物理序号排序和筛选
+-stationBranchOtherId: 收费站分支点在另一支路编码，用于查询收费站分支点在另一支路编码、按支路筛选
+-stationOtherIndex: 收费站分支点在另一支路物理序号，用于查询收费站分支点在另一支路物理序号
+-stationPlazaCount: 收费广场数量，用于查询收费广场数量
+-stationUpEntryFlag: 收费站上行入口标志，用于查询收费站上行入口标志、按上行入口筛选
+-stationUpExitFlag: 收费站上行出口标志，用于查询收费站上行出口标志、按上行出口筛选
+-stationDownEntryFlag: 收费站下行入口标志，用于查询收费站下行入口标志、按下行入口筛选
+-stationDownExitFlag: 收费站下行出口标志，用于查询收费站下行出口标志、按下行出口筛选
+-stationUpToDownFlag: 收费站上行调下行标志，用于查询收费站上行调下行标志、按调头标志筛选
+-stationDownToUpFlag: 收费站下行调上行标志，用于查询收费站下行调上行标志、按调头标志筛选
+-stationEntryVirtualGantryId: 收费站入口承载门架编号，用于查询收费站入口承载门架编号、按门架筛选
+-stationExitVirtualGantryId: 收费站出口承载门架编号，用于查询收费站出口承载门架编号、按门架筛选
+-stationAgencyGantryIds: 收费站代收门架编号，用于查询收费站代收门架编号
+-stationServerIp: 收费站服务器IP，用于查询收费站服务器IP、按服务器IP筛选
+-stationCityRegionName: 收费站所在地级市名称，用于查询收费站所在地级市名称、按地级市筛选
+-stationCountryName: 收费站所在区县名称，用于查询收费站所在区县名称、按区县筛选
+-stationRegionalismCode: 收费站区县六位行政区划代码，用于查询收费站区县六位行政区划代码、按行政区划筛选
+-stationServerManuId: 收费站站级服务器厂商代码，用于查询收费站站级服务器厂商代码、按厂商筛选
+-stationServerSystemName: 收费站站级服务器操作系统名称，用于查询收费站站级服务器操作系统名称、按系统筛选
+-stationServerSystemVersion: 收费站站级服务器操作系统版本号，用于查询收费站站级服务器操作系统版本号、按版本筛选
+-stationServerDbVersion: 收费站站级服务器数据库系统版本号，用于查询收费站站级服务器数据库系统版本号、按版本筛选
+-stationVersion: 收费站版本号，用于查询收费站版本号、按版本筛选
+-stationVersionValidTime: 收费站版本生效时间，用于查询收费站版本生效时间、按生效时间排序和筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-altitude: 高程，用于查询高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollSection
+收费路段表，用于记录收费路段的资产信息、运营参数、技术指标及地理位置，包括资产编码、路段编号、名称、全称、类型、性质、里程、车道配置、税率、开工及通车时间等，支持按资产编码、路段编号、名称、全称、类型、性质、收费方式、联网状态、归属区域、业主编号、公司编码、IP组合等多维度查询和统计分析：:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-sectionName: 收费路段名称，用于查询收费路段名称、按名称筛选和分组统计
+-sectionFullName: 收费路段全称，用于查询收费路段全称、按全称筛选
+-startStake: 起始计费位置桩号，用于查询起点桩号、按桩号范围筛选
+-endStake: 终止计费位置桩号，用于查询终点桩号、按桩号范围筛选
+-sectionLevel: 收费路段类型，用于查询收费路段类型、按路段类型筛选
+-sectionType: 收费路段性质，用于查询收费路段性质、按路段性质筛选
+-sectionChargeType: 收费路段收费方式，用于查询收费路段收费方式、按收费方式筛选
+-sectionOnlineStatus: 收费路段联网收费状态，用于查询收费路段联网收费状态、按联网状态筛选
+-sectionStartPileDirection: 收费路段起始桩号方向，用于查询收费路段起始桩号方向、按桩号方向筛选
+-sectionLength: 收费路段里程，用于查询收费路段里程、按里程排序和筛选
+-sectionFourLaneLength: 收费路段其中四车道里程，用于查询收费路段其中四车道里程
+-sectionSixLaneLength: 收费路段其中六车道里程，用于查询收费路段其中六车道里程
+-sectionEightLaneLength: 收费路段其中八车道里程，用于查询收费路段其中八车道里程
+-sectionBridgeTunnelLength: 收费路段其中桥隧里程，用于查询收费路段其中桥隧里程
+-sectionTaxFlag: 收费路段是否纳税，用于查询收费路段是否纳税、按纳税标志筛选
+-sectionTaxRate: 收费路段税率，用于查询收费路段税率
+-sectionNextTaxRate: 收费路段待用税率，用于查询收费路段待用税率
+-sectionNextRateDate: 收费路段待用税率生效日期，用于查询收费路段待用税率生效日期
+-sectionBuiltDate: 收费路段开工日期，用于查询收费路段开工日期
+-sectionStartDate: 收费路段通车日期，用于查询收费路段通车日期
+-sectionEndDate: 收费路段停止收费日期，用于查询收费路段停止收费日期
+-sectionOwnerId: 收费路段所属业主编号，用于查询收费路段所属业主编号、按业主筛选
+-sectionNetRoadId: 收费路段归属区域编码，用于查询收费路段归属区域编码、按区域筛选
+-sectionTollRoads: 收费路段重合收费公路编号，用于查询收费路段重合收费公路编号
+-sectionRoadNo: 收费路段省内路段编号，用于查询收费路段省内路段编号、按路段编号筛选
+-sectionRoadServerIp: 收费路段服务器IP组合，用于查询收费路段服务器IP组合、按服务器IP筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-startLongitude: 起始计费位置经度，用于查询起点经度
+-startLatitude: 起始计费位置纬度，用于查询起点纬度
+-startAltitude: 起始计费位置高程，用于查询起点高程
+-endLongitude: 终止计费位置经度，用于查询终点经度
+-endLatitude: 终止计费位置纬度，用于查询终点纬度
+-endAltitude: 终止计费位置高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollRoad
+收费公路表，用于记录收费公路的基础信息、位置信息和运营状态，包括公路编号、名称、技术等级、起止位置、归属区域、资产编码、资产类型、计费位置桩号及经纬度等，支持按编号、名称、资产编码、技术等级、归属区域等多维度查询，可统计收费公路总数及各技术等级数量，支持查询完整的基础信息、位置信息及综合信息:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-roadId: 收费公路编号，用于查询收费公路编号、唯一标识收费公路
+-roadName: 收费公路名称，用于查询收费公路名称、按名称筛选
+-roadTechnologyLevel: 收费公路技术等级，用于查询收费公路技术等级、按技术等级筛选和分组统计
+-startStake: 起始计费位置桩号，用于查询起点桩号、按桩号范围筛选
+-endStake: 终止计费位置桩号，用于查询终点桩号、按桩号范围筛选
+-roadStartSite: 收费公路起始计费位置地点，用于查询收费公路起始计费位置地点、按起始地点筛选
+-roadEndSite: 收费公路终止计费位置地点，用于查询收费公路终止计费位置地点、按终止地点筛选
+-roadStartStationId: 收费公路起始收费站编号，用于查询收费公路起始收费站编号、按起始站筛选
+-roadEndStationId: 收费公路终止收费站编号，用于查询收费公路终止收费站编号、按终止站筛选
+-roadNetRoadId: 收费公路归属区域编码，用于查询收费公路归属区域编码、按区域筛选
+-startLongitude: 起始计费位置经度，用于查询起点经度
+-startLatitude: 起始计费位置纬度，用于查询起点纬度
+-startAltitude: 起始计费位置高程，用于查询起点高程
+-endLongitude: 终止计费位置经度，用于查询终点经度
+-endLatitude: 终止计费位置纬度，用于查询终点纬度
+-endAltitude: 终止计费位置高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollPlaza
+收费广场表，用于记录收费广场的基础信息、技术参数、运营状态及关联设施，包括广场编号、名称、位置桩号、资产编码、资产类型、归属区域、使用状态、治超配置、车道数、经度、纬度、高程等，支持按编号、名称、桩号、资产编码、归属区域、公司编码、收费站编号等多维度查询，可统计收费广场数量、平均车道数、各收费站广场数量及车道配置情况，支持综合信息查询与设施配置分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-plazaId: 收费广场编号，用于查询收费广场编号、唯一标识收费广场
+-plazaName: 收费广场名称，用于查询收费广场名称、按名称筛选
+-stake: 桩号，用于查询桩号位置、按桩号筛选
+-plazaStatus: 收费广场使用状态，用于查询收费广场使用状态、按使用状态筛选
+-plazaType: 收费广场类型，用于查询收费广场类型、按广场类型筛选
+-plazaEntryExitType: 收费广场入出口类型，用于查询收费广场入出口类型
+-plazaNetRoadId: 收费广场归属区域编码，用于查询收费广场归属区域编码、按区域筛选
+-plazaRoadNo: 收费广场省内路段编号，用于查询收费广场省内路段编号、按路段编号筛选
+-plazaStationNo: 收费广场省内站编号，用于查询收费广场省内站编号、按站编号筛选
+-plazaSquareNo: 收费广场省内广场编号，用于查询收费广场省内广场编号、按广场编号筛选
+-plazaIfContainLimitWeight: 收费广场是否有治超，用于查询收费广场是否有治超
+-plazaLimitWeightPos: 收费广场治超位置，用于查询收费广场治超位置
+-plazaLaneCount: 收费广场土建车道数，用于查询收费广场车道数、按车道数排序和筛选
+-stationId: 收费站编号，用于查询收费站编号、唯一标识收费站
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-altitude: 高程，用于查询高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollLane
+收费车道表，用于记录数据资源管理平台中收费车道的资产编码、类型、使用状态、入出口属性、归属区域、设备配置及运营信息，支持按资产编码、编号、类型、状态、区域编码、IP地址、厂商代码等多维度查询和统计分析，满足车道数量统计、设备信息查询及运营状态监控需求:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-laneId: 收费车道编号，用于查询收费车道编号、唯一标识收费车道
+-laneStatus: 收费车道使用状态，用于查询收费车道使用状态、按使用状态筛选和分组统计
+-laneType: 收费车道类型，用于查询收费车道类型、按车道类型筛选和分组统计
+-laneEntryExitType: 收费车道入出口类型，用于查询收费车道入出口类型、按入出口类型筛选和分组统计
+-laneStartDate: 收费车道起始日期，用于查询收费车道起始日期、按起始日期排序和筛选
+-laneEndDate: 收费车道终止日期，用于查询收费车道终止日期
+-laneNetRoadId: 收费车道归属区域编码，用于查询收费车道归属区域编码、按区域筛选
+-laneRoadNo: 收费车道省内路段编号，用于查询收费车道省内路段编号、按路段编号筛选
+-laneStationNo: 收费车道省内站编号，用于查询收费车道省内站编号、按站编号筛选
+-laneSquareNo: 收费车道省内广场编号，用于查询收费车道省内广场编号、按广场编号筛选
+-laneNo: 收费车道省内车道编号，用于查询收费车道省内车道编号、按车道编号筛选
+-laneHex: 收费车道HEX字符串，用于查询收费车道HEX字符串、按HEX筛选
+-laneNum: 收费车道土建车道号，用于查询收费车道土建车道号、按车道号排序和筛选
+-laneIfContainLimitWeight: 收费车道是否有治超，用于查询收费车道是否有治超
+-laneRailingPosition: 收费车道栏杆位置，用于查询收费车道栏杆位置、按栏杆位置筛选和分组统计
+-laneTidalTime: 收费车道潮汐车道反向时间，用于查询收费车道潮汐车道反向时间
+-laneComputerIp: 收费车道车道机器IP，用于查询收费车道车道机器IP、按机器IP筛选
+-laneRsuManuId: 收费车道RSU厂商代码，用于查询RSU厂商代码、按厂商筛选
+-laneRsuModel: 收费车道RSU型号，用于查询收费车道RSU型号、按型号筛选
+-laneRsuId: 收费车道RSU编号，用于查询收费车道RSU编号、按编号筛选
+-laneVlprManuId: 收费车道牌识厂商代码，用于查询收费车道牌识厂商代码、按厂商筛选
+-stationId: 收费站编号，用于查询收费站编号、唯一标识收费站
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-startLongitude: 起始经度，用于查询起点经度
+-startLatitude: 起始纬度，用于查询起点纬度
+-startAltitude: 起始高程，用于查询起点高程
+-centerLongitude: 中心经度，用于查询中心经度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-centerAltitude: 中心高程，用于查询中心高程
+-endLongitude: 终止经度，用于查询终点经度
+-endLatitude: 终止纬度，用于查询终点纬度
+-endAltitude: 终止高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollInterval
+收费单元表，用于记录收费单元的基本信息、位置信息、运营参数及版本管理，支持按资产编码、编号、名称、路段性质、里程桩号、收费类型、路段方向、公司编码、路线编号、版本号等多维度查询，可统计收费单元数量、类型分布、路段方向分布、所属路段数量及总里程，支持查询最近开始收费的单元及起止里程最大值等分析需求:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-intervalId: 收费单元编号，用于查询收费单元编号、唯一标识收费单元
+-intervalName: 收费单元名称，用于查询收费单元名称、按名称筛选
+-intervalSectionType: 收费单元所属路段性质，用于查询收费单元所属路段性质、按路段性质筛选
+-intervalLength: 收费单元起止里程，用于查询收费单元里程、按里程排序和筛选
+-startStake: 起始计费位置桩号，用于查询起点桩号、按桩号范围筛选
+-endStake: 终止计费位置桩号，用于查询终点桩号、按桩号范围筛选
+-intervalTollRoads: 收费单元重合收费公路编号，用于查询收费单元重合收费公路编号
+-intervalProType: 收费单元省界标识
+-intervalNetRoadId: 收费单元归属区域编码
+-intervalRoadNo: 收费单元省内路段编号
+-intervalStartStaName: 收费标准中起始计费位置名称
+-intervalEndStaName: 收费标准中终止计费位置名称
+-intervalType: 收费单元类型，用于查询收费单元类型、按单元类型筛选和分组统计
+-intervalOppositeId: 收费单元反向收费单元编号，用于查询收费单元反向收费单元编号、按反向单元筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-intervalProDirection: 收费单元省界方向
+-intervalBeginDate: 收费单元开始收费日期，用于查询收费单元开始收费日期、按开始日期排序和筛选
+-intervalEndDate: 收费单元停止收费日期，用于查询收费单元停止收费日期
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-intervalRealType: 收费单元实体类型，用于查询收费单元实体类型、按实体类型筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-intervalVersion: 收费单元版本号，用于查询收费单元版本号、按版本筛选
+-intervalVerValidTime: 收费单元版本生效时间，用于查询收费单元版本生效时间
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-startLongitude: 起始计费位置经度，用于查询起点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-startAltitude: 起点高程，用于查询起点高程
+-endLongitude: 终点经度，用于查询终点经度
+-endLatitude: 终点纬度，用于查询终点纬度
+-endAltitude: 终点高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_tollGantry
+收费门架表，用于记录收费门架的资产编码、编号、名称、类型、桩号、方向、使用状态、路段信息、HEX字符串、标志、车道数等详细信息，支持按资产编码、编号、名称、桩号、方向、使用状态、类型、路段编号、归属区域编码等多维度查询和统计分析，可统计各类别收费门架数量，支持查询具体门架的综合信息及关联设备配置:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-tollGantryId: 收费门架编号，用于查询收费门架编号、唯一标识收费门架
+-tollGantryName: 收费门架名称，用于查询收费门架名称、按名称筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-stake: 桩号，用于查询桩号位置、按桩号筛选
+-tollGantryStatus: 收费门架使用状态，用于查询收费门架使用状态、按使用状态筛选和分组统计
+-tollGantryType: 收费门架类型，用于查询收费门架类型、按门架类型筛选
+-tollGantrySort: 收费门架种类，用于查询收费门架种类、按门架种类筛选和分组统计
+-tollGantryEntryExitFlag: 收费门架入出口标志，用于查询收费门架入出口标志、按入出口标志筛选和分组统计
+-tollGantryBoundaryType: 收费门架省界入出口标识，用于查询收费门架省界入出口标识、按省界标识筛选
+-tollGantryProvinceDirection: 收费门架省界方向，用于查询收费门架省界方向、按省界方向筛选和分组统计
+-tollGantryVirtualFlag: 承载门架标志，用于查询承载门架标志、按承载标志筛选和分组统计
+-tollGantryVirtualStationId: 承载门架收费站编号，用于查询承载门架收费站编号、按收费站筛选
+-tollGantryStartDate: 收费门架起始日期，用于查询收费门架起始日期、按起始日期排序和筛选
+-tollGantryEndDate: 收费门架终止日期，用于查询收费门架终止日期
+-tollGantryNetRoadId: 收费门架归属区域编码，用于查询收费门架归属区域编码、按区域筛选
+-tollGantryRoadNo: 收费门架省内路段编号，用于查询收费门架省内路段编号、按路段编号筛选
+-tollGantryHex: 收费门架HEX字符串，用于查询收费门架HEX字符串、按HEX筛选
+-tollGantrySign: 收费门架标志，用于查询收费门架标志、按标志筛选和分组统计
+-tollGantryLaneCount: 收费门架车道数，用于查询收费门架车道数
+-tollGantryTollIntervals: 收费门架收费单元编码组合，用于查询收费门架收费单元编码组合
+-tollGantryAgencyGantryIds: 收费门架代收门架编号，用于查询收费门架代收门架编号
+-tollGantryReverseHex: 收费门架反向门架HEX字符串，用于查询收费门架反向门架HEX字符串、按反向HEX筛选
+-tollGantryRsuManuId: 收费门架RSU厂商代码，用于查询收费门架RSU厂商代码、按厂商筛选
+-tollGantryRsuModel: 收费门架RSU型号，用于查询收费门架RSU型号、按型号筛选
+-tollGantryRsuId: 收费门架RSU编号，用于查询收费门架RSU编号、按编号筛选
+-tollGantryVlprManuId: 收费门架高清车牌识别设备厂商代码，用于查询收费门架高清车牌识别设备厂商代码、按厂商筛选
+-tollGantryVlprModel: 收费门架高清车牌识别设备型号，用于查询收费门架高清车牌识别设备型号、按型号筛选
+-tollGantryVlprId: 收费门架高清车牌识别设备编号，用于查询收费门架高清车牌识别设备编号、按编号筛选
+-tollGantryHdvManuId: 收费门架高清摄像机厂商代码，用于查询收费门架高清摄像机厂商代码、按厂商筛选
+-tollGantryHdvModel: 收费门架高清摄像机设备型号，用于查询收费门架高清摄像机设备型号、按型号筛选
+-tollGantryHdvId: 收费门架高清摄像机设备编号，用于查询收费门架高清摄像机设备编号、按编号筛选
+-tollGantryControllerManuId: 收费门架控制机设备厂商代码，用于查询收费门架控制机设备厂商代码、按厂商筛选
+-tollGantryControllerModel: 收费门架控制机设备型号，用于查询收费门架控制机设备型号、按型号筛选
+-tollGantryControllerId: 收费门架控制机设备编号，用于查询收费门架控制机设备编号、按编号筛选
+-tollGantryControllerSystemVer: 收费门架控制机操作系统版本号，用于查询收费门架控制机操作系统版本号、按版本筛选
+-tollGantryServerManuId: 收费门架服务器设备厂商代码，用于查询收费门架服务器设备厂商代码、按厂商筛选
+-tollGantryServerModel: 收费门架服务器设备型号，用于查询收费门架服务器设备型号、按型号筛选
+-tollGantryServerId: 收费门架服务器设备编号，用于查询收费门架服务器设备编号、按编号筛选
+-tollGantryServerSystemVersion: 收费门架服务器操作系统版本号，用于查询收费门架服务器操作系统版本号、按版本筛选
+-tollGantryServerDbVersion: 收费门架服务器数据库系统版本号，用于查询收费门架服务器数据库系统版本号、按版本筛选
+-tollGantryVehicleDetManuId: 收费门架车辆检测设备厂商代码
+-tollGantryVehicleDetModel: 收费门架车辆检测设备型号
+-tollGantryVehicleDetId: 收费门架车辆检测设备编号
+-tollGantryWeatherDetManuId: 收费门架气象检测设备厂商代码
+-tollGantryWeatherDetModel: 收费门架气象检测设备型号
+-tollGantryWeatherDetId: 收费门架气象检测设备编号
+-tollGantryClassDetManuId: 收费门架车型检测设备厂商代码
+-tollGantryClassDetModel: 收费门架车型检测设备型号
+-tollGantryClassDetId: 收费门架车型检测设备编号
+-tollGantryLoadDetManuId: 收费门架断面称重检测设备厂商代码
+-tollGantryLoadDetModel: 收费门架断面称重检测设备型号
+-tollGantryLoadDetId: 收费门架断面称重检测设备编号
+-tollGantryTempControllerManuId: 收费门架温控设备厂商代码
+-tollGantryTempControllerModel: 收费门架温控设备型号
+-tollGantryTempControllerId: 收费门架温控设备编号
+-tollGantryPowerCtrlManuId: 收费门架供电设备厂商代码
+-tollGantryPowerCtrlModel: 收费门架供电设备型号
+-tollGantryPowerCtrlId: 收费门架供电设备编号
+-tollGantrySafeEquipManuId: 收费门架安全接入设备厂商代码
+-tollGantrySafeEquipModel: 收费门架安全接入设备型号
+-tollGantrySafeEquipId: 收费门架安全接入设备编号
+-tollGantryVersion: 收费门架版本号，用于查询收费门架版本号、按版本筛选
+-tollGantryVersionValidTime: 收费门架版本生效时间，用于查询收费门架版本生效时间
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-altitude: 高程，用于查询高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_slope
+边坡表，用于记录边坡的基本信息、位置信息、资产信息及安全管理信息，支持按边坡编号、资产编码、资产类型、路段方向、桩号范围、设施管理状态、边坡类型、所在地、匝道位置、收费路段编号、路线编号、所属公司编码、属主系统主键、数据状态及数据版本等多维度查询与统计分析，可查询所有边坡信息、统计边坡数量、查询特定资产编码或类型、桩号范围、设施管理状态、边坡类型、所在地、匝道位置、收费路段编号、路线编号、所属公司编码等信息，支持统计各分类下的边坡数量、里程平均值、最大值，查询建成日期、经纬度、是否重点边坡等属性，支持按收费路段或路线编号筛选边坡信息，适用于边坡资产的全面管理和分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-slopeId: 边坡编号，用于查询边坡编号、唯一标识边坡
+-slopeName: 边坡名称，用于查询边坡名称、按名称筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-slopeType: 边坡类型，用于查询边坡类型、按边坡类型筛选和分组统计
+-slopeLength: 边坡里程，用于查询边坡长度、按边坡长度排序和筛选
+-slopeImportantFlag: 是否重点边坡，用于查询是否重点边坡、按重点边坡筛选和分组统计
+-slopePlace: 边坡所在地，用于查询边坡所在地、按所在地筛选
+-slopeRampLineName: 边坡位于匝道位置名称，用于查询边坡位于匝道位置名称、按匝道位置筛选
+-slopeCompletionDate: 边坡建成日期，用于查询边坡建成日期、按建成日期排序和筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-startLongitude: 起点经度，用于查询起点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-startAltitude: 起点高程，用于查询起点高程
+-centerLongitude: 中心经度，用于查询中心经度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-centerAltitude: 中心高程，用于查询中心高程
+-endLongitude: 终点经度，用于查询终点经度
+-endLatitude: 终点纬度，用于查询终点纬度
+-endAltitude: 终点高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_serviceArea
+服务区表，用于记录服务区基本信息、设施配置、运营状态及位置信息，支持按名称、资产编码、路段方向、桩号、设施状态、所属公司、路线编号、收费路段编号等多维度查询，可统计服务区数量、各路段方向分布、收费路段下属服务区及停车位总数，支持查询服务区是否提供停车、加油站、汽修、便利店、餐饮等服务，便于全面掌握服务区运营情况:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-serviceAreaName: 服务区名称，用于查询服务区名称、按名称模糊搜索
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-stake: 桩号，用于查询桩号位置、按桩号筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-serviceAreaGrade: 服务区等级，用于查询服务区等级
+-serviceAreaOpenDate: 开通日期，用于查询服务区开通日期
+-serviceAreaAddress: 服务区地址，用于查询服务区地址、按地址模糊搜索
+-serviceAreaCoveredArea: 占地面积，用于查询服务区占地面积
+-serviceAreaParkingSpot: 停车区车位数，用于查询停车区车位数、按车位数筛选
+-serviceAreaChemVehParkingSpot: 危化品车车位数，用于查询危化品车车位数
+-serviceAreaChargePileNum: 充电桩数量，用于查询充电桩数量
+-serviceAreaParkingFlag: 是否提供停车，用于查询是否提供停车、按停车筛选
+-serviceAreaGasStationFlag: 是否提供加油站，用于查询是否提供加油站、按加油站筛选
+-serviceAreaRepairFlag: 是否提供汽修，用于查询是否提供汽修、按汽修筛选
+-serviceAreaStoreFlag: 是否提供便利店，用于查询是否提供便利店、按便利店筛选
+-serviceAreaRestaurantFlag: 是否提供餐饮，用于查询是否提供餐饮、按餐饮筛选
+-principal: 负责人，用于查询负责人、按负责人筛选
+-contactPhone: 联系电话，用于查询联系电话
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-altitude: 高程，用于查询高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_pavement
+路面表，用于记录路面的资产编码、类型、技术等级、路段长度、车道类型、位置坐标、桩号、所属公司、管理状态等关键信息，支持按资产编码、类型、技术等级、路段方向、收费路段编号、路线编号、数据状态等多维度查询和统计分析，可统计路面总数、各分类数量、平均路段长度及各收费路段的路面数量和总长度，支持查询特定资产、路段或路线的详细信息，包括结构参数、位置坐标及综合信息:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-paveLength: 路段长度，用于查询路面长度、按路面长度排序和筛选
+-paveTechLevel: 路面公路技术等级，用于查询路面公路技术等级、按技术等级筛选
+-laneType: 路面车道类型，用于查询收费车道类型、按车道类型筛选和分组统计
+-paveType: 路面类型，用于查询路面类型、按路面类型筛选
+-paveWidth: 路面有效宽度，用于查询路面宽度
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-startLongitude: 起点经度，用于查询起点经度
+-centerLongitude: 中心经度，用于查询中心经度
+-endLongitude: 终点经度，用于查询终点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-endLatitude: 终点纬度，用于查询终点纬度
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-roadDeflectionValue: 设计弯沉，用于查询设计弯沉
+-roadTotalwidth: 道路整体宽度，用于查询道路整体宽度
+-paveCentralPartitionWidth: 中央分隔带宽带，用于查询中央分隔带宽度
+-shoulderWidth: 路肩宽度，用于查询路肩宽度
+-subgradeWidth: 路基宽度，用于查询路基宽度
+-startAltitude: 起点高程，用于查询起点高程
+-centerAltitude: 中心高程，用于查询中心高程
+-endAltitude: 终点高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+-paveCompletionYear: 路面建成年限，用于查询路面建成年限
+
+
+###jtsjzy_mileageStake
+里程桩表，用于记录里程桩的资产编码、资产类型、位置信息（中心桩号、中心经度、中心纬度）、路段方向、所属路段（收费路段编号、路线编号）、所属公司编码等属性，支持按资产编码、资产类型、路段方向、中心桩号、收费路段编号、路线编号、所属公司编码等条件查询里程桩信息，支持统计里程桩总数及按路段方向、收费路段等维度分类统计数量:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-startLongitude: 起点经度，用于查询起点经度
+-centerLongitude: 中心经度，用于查询中心经度
+-endLongitude: 终点经度，用于查询终点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-endLatitude: 终点纬度，用于查询终点纬度
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+
+
+###jtsjzy_hectometreStake
+百米桩表，用于记录百米桩的位置信息、资产属性及所属路段信息，包括桩号位置、坐标、资产编码、资产类型、路段方向、中心桩号、收费路段编号、路线编号及所属公司编码，支持按资产编码、资产类型、路段方向、中心桩号、收费路段编号、路线编号及所属公司编码等条件查询百米桩信息，支持统计百米桩总数及各路段方向、收费路段下的百米桩数量，适用于高速公路百米桩的资产管理与查询分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-startLongitude: 起点经度，用于查询起点经度
+-centerLongitude: 中心经度，用于查询中心经度
+-endLongitude: 终点经度，用于查询终点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-endLatitude: 终点纬度，用于查询终点纬度
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+
+
+###jtsjzy_gantry
+龙门架表，用于记录龙门架的基本信息、建设信息、位置数据及资产管理信息，包括资产编码、资产类型、名称、中心桩号、中心经纬度、路段方向、收费路段编号、路线编号、所属公司编码、数据状态及数据版本，支持按资产编码、资产类型、名称、路段方向、中心桩号、收费路段编号、路线编号、所属公司编码、数据状态及数据版本等多维度查询和统计分析，可统计龙门架总数及各路段方向、收费路段下的龙门架数量，支持查询特定龙门架或特定路段（如新博高速）的详细信息:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-gantryName: 龙门架名称，用于查询门架名称、按名称筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-startLongitude: 起点经度，用于查询起点经度
+-centerLongitude: 中心经度，用于查询中心经度
+-endLongitude: 终点经度，用于查询终点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-endLatitude: 终点纬度，用于查询终点纬度
+-gantryDesignUnitName: 龙门架设计单位，用于查询龙门架设计单位
+-gantryBuildUnitName: 龙门架承建单位，用于查询龙门架承建单位
+-gantryDesignTime: 龙门架设计年限，用于查询龙门架设计年限
+-gantryStartDate: 龙门架启用日期，用于查询龙门架启用日期
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+
+
+###jtsjzy_culvert
+涵洞表，用于记录涵洞的基本信息、建设信息、位置数据及资产属性，包括涵洞编号、名称、孔径组合、建成日期、类型、路段方向、桩号、经纬度、所在地、收费路段编号、路线编号、所属公司编码、设施管理状态、数据状态、数据版本等字段，支持按资产编码、涵洞编号、名称、类型、路段方向、所在地、收费路段编号、路线编号、所属公司编码、设施管理状态、数据状态、数据版本等多维度查询，支持统计涵洞总数、各类型数量、各路段方向数量、各设施管理状态数量、各收费路段数量及设施数量汇总，可查询最近建成的涵洞及特定收费路段下属的涵洞信息，支持新博高速等路线的涵洞信息查询与分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-culvertId: 涵洞编号，用于查询涵洞编号、唯一标识涵洞
+-culvertName: 涵洞名称，用于查询涵洞名称、按名称筛选
+-culvertDesignInstName: 涵洞设计单位名称，用于查询涵洞设计单位名称
+-culvertConstrContractorName: 涵洞施工单位名称，用于查询涵洞施工单位名称
+-culvertConstrSupvEntityName: 涵洞监理单位名称，用于查询涵洞监理单位名称
+-culvertMaintContractorName: 涵洞养护单位名称，用于查询涵洞养护单位名称
+-culvertGoverRegAuthName: 涵洞监管单位名称，用于查询涵洞监管单位名称
+-culvertAperComb: 涵洞孔径组合，用于查询涵洞孔径组合
+-culvertCompletionDate: 涵洞建成日期，用于查询涵洞建成日期、按建成日期排序和筛选
+-culvertType: 涵洞类型，用于查询涵洞类型、按涵洞类型筛选和分组统计
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-stake: 桩号，用于查询桩号位置、按桩号筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-culvertPlace: 涵洞所在地，用于查询涵洞所在地、按所在地筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-altitude: 高程，用于查询高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_bridge
+桥梁表，用于记录桥梁的基本信息、技术参数和建设信息，包括桥梁编号、名称、资产编码、资产类型、路段方向、桩号、管理状态、设施状态、性质、收费性质、类型、跨径分类、功能类型、桥面铺装类型、墩台防撞设施类型、通航等级、抗震等级及几何尺寸等，支持按编号、名称、资产编码、资产类型、路段方向、桩号、管理状态、设施状态、性质、收费性质、类型、跨径分类、功能类型、桥面铺装类型、墩台防撞设施类型、通航等级、抗震等级等多维度查询、统计和分析，可统计桥梁总数及各类属性分布情况，支持精准查询特定桥梁信息及技术参数:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-bridgeId: 桥梁编号，用于查询桥梁编号、唯一标识桥梁
+-bridgeName: 桥梁名称，用于查询桥梁名称、按名称筛选
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-adminStatus: 设施管理状态，用于查询设施管理状态、按管理状态筛选和分组统计
+-bridgeStatus: 桥梁状态，用于查询桥梁状态、按桥梁状态筛选
+-bridgeProperties: 桥梁性质，用于查询桥梁性质、按桥梁性质筛选
+-bridgeTollNature: 桥梁收费性质，用于查询桥梁收费性质、按收费性质筛选
+-bridgeType: 桥梁类型，用于查询桥梁类型、按桥梁类型筛选和分组统计
+-bridgeSpanClassify: 桥梁跨径分类，用于查询桥梁跨径分类、按跨径分类筛选和分组统计
+-bridgeFunctionType: 桥梁功能类型，用于查询桥梁功能类型、按功能类型筛选
+-bridgeDeckPavType: 桥面铺装类型，用于查询桥面铺装类型、按铺装类型筛选和分组统计
+-bridgePierAvoidType: 桥梁墩台防撞设施类型，用于查询桥梁墩台防撞设施类型、按防撞类型筛选
+-bridgeNavigationLevel: 桥梁通航等级，用于查询桥梁通航等级、按通航等级筛选
+-bridgeSeismicLevel: 桥梁抗震等级，用于查询桥梁抗震等级、按抗震等级筛选
+-bridgeLength: 桥梁全长，用于查询桥梁长度、按桥梁长度排序和筛选
+-bridgeDeckWidth: 桥面全宽，用于查询桥面全宽
+-bridgeDeckClearWidth: 桥面净宽，用于查询桥面净宽
+-bridgeNetHeight: 桥上净高，用于查询桥上净高
+-bridgeHeightLimit: 桥梁限高，用于查询桥梁限高
+-bridgeDeckStandardHeight: 桥面标准净空，用于查询桥面标准净空
+-bridgeDeckActualHeight: 桥面实际净空，用于查询桥面实际净空
+-bridgeDownHeight: 桥下净高，用于查询桥下净高
+-bridgeDownStandardHeight: 桥下标准净空，用于查询桥下标准净空
+-bridgeDownActualHeight: 桥下实际净空，用于查询桥下实际净空
+-bridgeCentralPartitionWidth: 桥梁中央分隔带宽度，用于查询桥梁中央分隔带宽度
+-bridgeGuaWidth: 桥梁护栏或防撞栏宽度，用于查询桥梁护栏或防撞栏宽度
+-bridgeGuaHeight: 桥梁护栏或防撞栏高度，用于查询桥梁护栏或防撞栏高度
+-bridgeSlope: 桥梁坡度，用于查询桥梁坡度
+-bridgeSheetCount: 桥梁幅数，用于查询桥梁幅数
+-bridgeSpanCombination: 桥跨组合，用于查询桥跨组合
+-bridgeFlatCurveRadius: 桥梁平曲线半径，用于查询桥梁平曲线半径
+-bridgeDesignLoad: 桥梁设计荷载，用于查询桥梁设计荷载
+-bridgeDesignWaterLevel: 桥梁设计水位，用于查询桥梁设计水位
+-bridgeHistoryFloodLevel: 桥梁历史洪水位，用于查询桥梁历史洪水位
+-bridgeDesignFloodFrequency: 桥梁设计洪水频率，用于查询桥梁设计洪水频率
+-bridgeInterchangeFlag: 桥梁是否互通立交，用于查询桥梁是否互通立交、按互通立交筛选和分组统计
+-bridgeBroadRoadNarrowFlag: 桥梁是否宽路窄桥，用于查询桥梁是否宽路窄桥、按宽路窄桥筛选
+-bridgeSinglePierFlag: 桥梁是否独柱墩，用于查询桥梁是否独柱墩、按独柱墩筛选和分组统计
+-bridgeUnderPassName: 桥梁下穿通道名称，用于查询桥梁下穿通道名称、按下穿通道筛选
+-bridgeUnderPassStake: 桥梁下穿通道桩号，用于查询桥梁下穿通道桩号、按下穿桩号筛选
+-bridgeCompletionDate: 桥梁建成日期，用于查询桥梁建成日期、按建成日期排序和筛选
+-bridgeOpenDate: 桥梁通车日期，用于查询桥梁通车日期
+-bridgeEngineer: 桥梁工程师，用于查询桥梁工程师、按工程师筛选
+-bridgeConstrEntityName: 桥梁建设单位名称，用于查询桥梁建设单位名称、按建设单位筛选
+-bridgeDesignInstName: 桥梁设计单位名称，用于查询桥梁设计单位名称、按设计单位筛选
+-bridgeConstrContractorName: 桥梁施工单位名称，用于查询桥梁施工单位名称、按施工单位筛选
+-bridgeConstrSupvEntityName: 桥梁监理单位名称，用于查询桥梁监理单位名称、按监理单位筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-startLongitude: 起点经度，用于查询起点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-startAltitude: 起点高程，用于查询起点高程
+-centerLongitude: 中心经度，用于查询中心经度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-centerAltitude: 中心高程，用于查询中心高程
+-endLongitude: 终点经度，用于查询终点经度
+-endLatitude: 终点纬度，用于查询终点纬度
+-endAltitude: 终点高程，用于查询终点高程
+-ownerSystemPrimaryKey: 属主系统主键，用于查询属主系统主键、按属主系统筛选
+
+
+###jtsjzy_manageCenter
+管理中心，用于记录管理中心的基本信息、位置信息、联系方式及所属关系，包括管理中心名称、联系电话、位置坐标、资产编码、资产类型、中心桩号、所属路线编号、所属公司编码及备注，支持查询所有管理中心信息、按资产编码或名称精准查询、按路线编号或公司编码筛选，可统计管理中心数量及按路线编号分析管理中心分布情况，支持查询管理中心的资产类型、联系电话、桩号、经纬度等详细信息，满足多维度查询与统计分析需求:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-manageCenterName: 管理中心名称，用于查询管理中心名称、按名称筛选
+-manageCenterPhone: 管理中心联系电话，用于查询管理中心联系电话
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-remark: 备注，用于查询备注信息
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+
+
+###jtsjzy_chargingPile
+充电桩表，用于记录充电桩的基本信息、位置信息、所属路段及管理属性，包括充电桩名称、资产编码、桩号、位置坐标、收费路段编号、路线编号、所属公司编码及所属城市等，支持查询所有充电桩信息、按资产编码/名称/桩号/路段编号/路线编号/公司编码/城市等条件精准查询，支持统计充电桩总数及按收费路段、城市等维度进行分布统计:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-chargingPileName: 充电桩名称，用于查询充电桩名称、按名称筛选
+-longitude: 经度，用于查询经度坐标、地图定位
+-latitude: 纬度，用于查询纬度坐标、地图定位
+-stake: 桩号，用于查询桩号位置、按桩号筛选
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选
+-chargingPileCity: 充电桩所属城市，用于查询充电桩所属城市、按城市筛选
+
+
+###jtsjzy_signage
+标识标牌表，用于记录标识标牌的资产编码、资产类型、标志名称、位置信息（中心桩号、中心坐标）、所属路段（收费路段编号、路线编号）、所属公司编码、数据状态及版本等详细信息，支持查询所有标识标牌信息、按资产编码、资产类型、路段方向、中心桩号、收费路段编号、路线编号、所属公司编码等字段进行精确查询，支持统计标识标牌总数、各路段方向数量、各收费路段数量及收费路段下属设施数量，支持按标志类型统计技术参数，便于资产管理与空间数据分析:
+-assetsCode: 资产编码，用于查询资产编码、唯一标识资产
+-assetsType: 资产类型，用于查询资产类型、按资产类型筛选
+-signName: 标志名称，用于查询标志名称、按名称筛选
+-signType: 标志类型，用于查询标志类型
+-sectionDirection: 路段方向，用于查询路段方向、按路段方向筛选和分组统计
+-startStake: 起点桩号，用于查询起点桩号、按桩号范围筛选
+-centerStake: 中心桩号，用于查询中心桩号、按桩号筛选
+-endStake: 终点桩号，用于查询终点桩号、按桩号范围筛选
+-startLongitude: 起点经度，用于查询起点经度
+-centerLongitude: 中心经度，用于查询中心经度
+-endLongitude: 终点经度，用于查询终点经度
+-startLatitude: 起点纬度，用于查询起点纬度
+-centerLatitude: 中心纬度，用于查询中心纬度
+-endLatitude: 终点纬度，用于查询终点纬度
+-signBotStructure: 标志底板构造形式，用于查询标志底板构造形式
+-signPostStructure: 标志立柱构造形式，用于查询标志立柱构造形式
+-signSupMethod: 标志支撑方式，用于查询标志支撑方式
+-signReflectLighting: 标志反光与照明，用于查询标志反光与照明
+-signSize: 标志版面尺寸，用于查询标志版面尺寸
+-signLayoutShape: 标志版面形状，用于查询标志版面形状
+-signLayoutColor: 标志版面颜色，用于查询标志版面颜色
+-signLayoutContent: 标志版面内容，用于查询标志版面内容
+-signStructDesc: 标志结构描述，用于查询标志结构描述
+-signContent: 标识标牌内容，用于查询标识标牌内容
+-sectionId: 收费路段编号，用于查询所属收费路段、按收费路段筛选
+-nationalRoadCode: 路线编号，用于查询路线编号、按路线筛选
+-orgId: 所属公司编码，用于查询所属公司编码、按所属公司筛选

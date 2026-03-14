@@ -1,0 +1,111 @@
+[数据库总览]
+1) 报表库（darm）
+- 前缀：darm_
+- 表数量：14
+- 典型主题：合同台账、预算计划、养护考核、技术状况评分
+- 典型时间维度：year, projectYear, dateId
+
+2) ODS库（datarms_ods）
+- 前缀：gjdt_jd_（机电 36表）、ldly_（路运 32表）、jtsjzy_（原始资产 20表）、dim_
+- 典型主题：设备台账、设备状态、故障工单、原始资产
+- 典型时间维度：create_time/commonCreateTime/happentime/time_id
+
+3) 跨库限制
+- 禁止在一条SQL中同时JOIN `darm_` 与 `gjdt_jd_/ldly_/jtsjzy_`。
+- 跨库分析必须拆分为多条SQL，执行后再做融合。
+
+---
+
+[主键与关联键优先级]
+A. 强关联键（优先用于同库JOIN）
+1) 设备主键：device_id / deviceId
+2) 路段主键：section_id / sectionId / waysection_id / roadId
+3) 车道主键：laneId / laneid / lane_no / laneNum / laneHex
+4) 收费站主键：stationId / stationid / station_no / stationNo
+
+B. 中关联键（字段名不同但语义接近，需标准化后比较）
+1) 路段编码：road_no, sectionRoadNo, laneRoadNo
+2) 里程桩号：mile_post, stake, startStake, endStake, mp_value
+3) 组织维度：org_id, orgId, sectionOwnerId
+4) 方向维度：direction_no, sectionDirection
+
+C. 弱关联键（仅用于统计对齐，不做强JOIN）
+1) 时间：year / projectYear / DATE_FORMAT(create_time,'%Y')
+2) 承包/项目名称：contractor / contractSectionName / projectName
+
+D. 不建议直接关联
+1) 纯描述文本字段（remarks, fault_des 等）
+2) 非标准化名称字段（设备中文名、自由文本位置）
+
+---
+
+[实体映射] 摄像枪（Camera）
+- 机电：gjdt_jd_base_camera（device_id, section_id, road_no, commonDelStatus）
+- 路运：ldly_base_d_camera（device_id, road_no, station_no, commonDelStatus）
+- 原始资产：jtsjzy_camera（assetsCode, sectionId, nationalRoadCode）
+- 推荐策略：
+  1) 先分别统计三个系统摄像枪总量和按路段分布。
+  2) 若要跨系统比对，优先按“路段维度”对齐（section_id/sectionId/road_no标准化）。
+  3) `assetsCode` 与 `device_id` 非必然一一对应，默认不强JOIN。
+
+---
+
+[实体映射] 车道（Lane）
+- 报表：darm_lane_log_four_index（laneId, dateId）
+- 机电：gjdt_jd_base_tolllane（laneNum, laneHex, sectionid, stationid）
+- 机电状态：gjdt_jd_monitor_lanestatus（laneid, sectionid, tollstationid）
+- 路运：ldly_base_d_lane_pilot_lamp（lane_no, road_no, station_no）
+- 原始资产：jtsjzy_tollLane（laneId, laneHex, laneNo, stationId, sectionId）
+- 推荐策略：
+  1) 同库内先做 laneId/laneHex 对齐。
+  2) 报表与ODS对比优先按时间+车道粒度并列，不做强JOIN。
+
+---
+
+[实体映射] 路段/收费站（Section/Station）
+- 机电：gjdt_jd_base_waysection（waysection_id, sectionid, waysection_no）
+- 路运设备大多含 road_no / station_no
+- 原始资产：jtsjzy_tollSection（sectionId）, jtsjzy_tollStation（stationId）
+- 推荐策略：
+  1) 构建标准路段键 section_key（优先 sectionId/section_id，再退化 road_no）。
+  2) 构建标准收费站键 station_key（stationId/stationid/station_no）。
+
+---
+
+[实体映射] 故障/告警（Fault/Alarm）
+- 机电主表：gjdt_jd_ops_order_fault_info（id, section_id, fault_level, status）
+- 机电新粤：gjdt_jd_ops_order_fault_info_xy（faultid, waysection_id, faultlevel）
+- 路运状态：ldly_cur_device_status / ldly_his_device_status（device_id, status, fault_status）
+- 推荐策略：
+  1) 先分系统统计故障数量、等级、状态。
+  2) 设备级联合时优先 device_id；路段级联合时用 section_key。
+
+---
+
+[实体映射] 养护与技术评分（Maintenance/Assessment）
+- 报表：darm_equipment_maintenance, darm_technology_status, darm_equipment_main_technology_status_1
+- 机电：gjdt_jd_base_daily_maintain_point / gjdt_jd_base_daily_maintain_section
+- 推荐策略：
+  1) 跨库通常按 year/projectYear 做趋势对齐。
+  2) contractSectionName/waysection_name 可用于弱匹配对比，不做硬JOIN。
+
+---
+
+[跨库融合口径规范]
+1) 先标注来源系统：darm / gjdt_jd / ldly / jtsjzy。
+2) 同口径指标可加总，不同口径指标只并列比较。
+3) 融合输出至少包含：
+   - 统一维度（时间/路段/设备类型）
+   - 来源标签
+   - 指标口径说明
+4) 无法直接关联时，必须保留“不可直接关联”说明，禁止强行推断。
+
+---
+
+[SQL生成防错清单]
+1) 表名必须来自DDL真实表清单。
+2) 典型错误示例（禁止）：
+- gjdt_jd_fault_order（不存在）
+- del_flag（在当前路运DDL中多数表不使用该字段）
+3) 逻辑删除过滤应优先使用DDL中真实存在的字段（如 commonDelStatus='0'）。
+4) 若字段不确定，使用保守SQL：SELECT * FROM 真实表 LIMIT 20;

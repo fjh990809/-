@@ -1,0 +1,866 @@
+###gjdt_jd_base_camera
+机电摄像枪表，用于记录设备的基本信息、位置信息、状态数据及地图资产关联信息，支持按设备编号、名称、路段号、地级市、路段编码、方向编码、导航名称、使用状态等多维度查询和统计分析，支持统计设备总数、启用率、接入率及分布情况，支持查询三维位置、地图资产位置及最新更新记录，可精准定位设备状态、分布及关联属性信息:
+-commonId: 自增物理主键，用于唯一标识记录
+-device_id: 设备编号，用于查询设备编号、按设备编号筛选、唯一标识设备
+-device_name: 设备名称，用于查询设备名称、按设备名称筛选
+-road_no: 路段号，用于查询路段号、按路段号筛选、按路段号分组统计
+-direction_name: 方向编码，用于查询方向编码、按方向编码筛选
+-facility_no: 设施编码，用于查询设施编码、按设施编码筛选
+-facility_name: 设施名称，用于查询设施名称、按设施名称筛选
+-mile_poat: 桩号，用于查询桩号、按桩号筛选
+-mp_value: 桩号数值，用于查询桩号数值、按桩号数值排序和筛选
+-x: 设备经度，用于查询设备经度
+-y: 设备纬度，用于查询设备纬度
+-h: 设备高层，用于查询设备高程
+-is_change: 是否接入，用于查询是否接入、按是否接入筛选
+-city: 地级市，用于查询地级市、按地级市筛选、按地级市分组统计
+-install_postion: 安装位置，用于查询安装位置、按安装位置筛选
+-section_id: 路段编码，用于查询路段编码、按路段编码筛选、按路段编码分组统计
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-navigation_type_name: 导航名称，用于查询导航名称、按导航名称筛选
+-navigation_type_no: 导航名称编号，用于查询导航名称编号
+-is_active: 使用状态，用于查询使用状态、按使用状态筛选、按使用状态分组统计
+-is_delete: 删除标志，用于查询删除标志、按删除标志筛选
+-ipc_ipaddress: 摄像枪ip，用于查询摄像枪ip、按摄像枪ip筛选
+-is_charge: 是否接入，用于查询是否接入、按是否接入筛选
+-plat_asset_code: 地图资产编码，用于查询地图资产编码
+-plat_asset_lng: 地图资产经度，用于查询地图资产经度
+-plat_asset_lat: 地图资产纬度，用于查询地图资产纬度
+-plat_asset_alt: 地图资产高度，用于查询地图资产高度
+-plat_asset_flag: 地图资产挂接标记，用于查询地图资产挂接标记
+-plat_facility_id: 资产编码，用于查询资产编码
+-plat_facility_flag: 资产标记，用于查询资产标记
+
+
+###gjdt_jd_brain_device_health_index_result
+设备健康指数结果表，用于记录机电设备的健康指数、等级、统计日期、更新时间及所属路段等信息，支持按设备编号、类型、路段、品牌、系统等多维度查询健康指数及告警状态，支持统计各类型、等级、路段、品牌的设备数量、平均健康指数及健康状态分布，可分析低健康设备、高健康设备及健康与告警综合情况，支持设备健康指数的详细查询与综合分析:
+-id: 主键id，用于查询主键ID、按主键ID筛选、关联查询
+-deviceId: 设备编号，用于查询设备编号、按设备编号筛选
+-deviceType: 设备类型/所属系统等信息，用于查询设备类型、按设备类型筛选、按设备类型分组统计
+-deviceTypeId: 设备类型ID，用于查询设备类型ID
+-deviceRoad: 设备所属路段，用于查询设备所属路段、按设备所属路段筛选、按设备所属路段分组统计
+-statisticDate: 统计日期，用于查询统计日期、按统计日期筛选、按统计日期排序、关联查询
+-healthIndex: 设备健康指数，用于查询设备健康指数、按设备健康指数筛选、按设备健康指数分组统计
+-indexLevel: 指数等级，用于查询指数等级、按指数等级筛选、按指数等级分组统计
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+-uk_device_statdate: 唯一索引，确保设备统计日期唯一
+-idx_deviceId: 设备编号索引
+-idx_statisticDate: 统计日期索引
+
+
+###gjdt_jd_monitor_lanestatus
+车道心跳信息监控表，用于记录收费车道的心跳状态、设备运行状态及版本信息，支持按车道ID、路段编码、收费站编号、车道类型、入出口标识等多维度查询车道心跳信息、设备状态及版本详情，支持统计车道数量、设备状态分布及版本信息，可用于系统健康监控、故障分析及运行状态评估:
+-laneid: 车道id，用于查询车道ID、按车道ID筛选
+-sectionid: 路段编码，用于查询路段编码、按路段编码筛选、按路段编码分组统计
+-tollstationid: 收费站编号，用于查询收费站编号、按收费站编号筛选、按收费站编号分组统计
+-hearttime: 生成时间，用于查询心跳时间、按心跳时间排序
+-lanetype: 车道类型，用于查询车道类型、按车道类型筛选、按车道类型分组统计
+-lanesign: 入/出口车道标识，用于查询入/出口车道标识、按入/出口车道标识筛选、按入/出口车道标识分组统计
+-vehiclegreylistversion: 重点关注名单版本号，用于查询重点关注名单版本号
+-vehiclegreylistrectime: 当前重点关注名单接收时间
+-vehicleblacklistversion: 当前追缴名单版本号，用于查询当前追缴名单版本号、关联查询
+-vehicleblacklistrectime: 当前追缴名单版本接收时间
+-vehicleblacklistrecnum: 追缴名单版本累计接收次数
+-obublacklistversion: 当前OBU状态名单版本号，用于查询当前OBU状态名单版本号、关联查询
+-obublacklistrectime: 当前OBU状态名单接收时间
+-obublacklistrecnum: 当前OBU状态名单累计接收次数
+-cpublacklistversion: 用户卡状态名单版本号
+-cpublacklistrectime: 当前用户卡状态名单接收时间
+-cpublacklistrecnum: 当前用户卡状态名单累计接收次数
+-cpcgreylistversion: 当前CPC卡灰名单版本号
+-cpcgreylistrectime: 当前CPC卡灰名单接收时间
+-cpcgreylistrecnum: 当前CPC卡灰名单名单累计接收次数
+-spcrateversion: 在用最小费额计费参数版本号
+-notenablespcrateversion: 待启用最小费额计费参数版本号
+-notenablespcraterectime: 待启用最小费额计费参数接收时间
+-greenreservelistversion: 绿通预约名单版本号
+-greenreservelistrectime: 绿通预约名单版本接收时间
+-greenreservelistrecnum: 绿通预约名单版本累计接收次数
+-bulkvehreserveversion: 大件运输车名单版本号
+-bulkvehreserverectime: 大件运输车名单版本接收时间
+-bulkvehreserverecnum: 大件运输车名单版本累计接收次数
+-overloadblackversion: 治超全国黑名单版本号
+-overloadblackrectime: 治超全国黑名单版本号接收时间
+-overloadblackrecnum: 治超全国黑名单版本累计接收次数
+-issuewhiteversion: 已联网发行方白名单版本号
+-issuewhiterectime: 已联网发行方白名单版本号版本号接收时间
+-provehiclerepaymentlistversion: 当前本省发行方补缴名单版本号
+-provehiclerepaymentlistrectime: 当前本省发行方补缴名单版接收时间
+-provehicleblacklistversion: 当前本省稽查追缴名单版本号
+-provehicleblacklistrectime: 当前本省稽查追缴名单接收时间
+-provehiclegraylistversion: 当前本省稽查重点关注名单版本号
+-provehiclegraylistrectime: 当前本省稽查重点关注名单接收时间
+-discountappointlistversion: 抢险救灾车辆预约名单版本号
+-discountappointlistrectime: 抢险救灾车辆预约名单接收时间
+-lanestatus: 车道状态，用于查询车道状态、按车道状态筛选、按车道状态分组统计
+-rsustatus: RSU状态，用于查询RSU状态、按RSU状态筛选、按RSU状态分组统计
+-lanecontrollerstatus: 车道控制器，用于查询车道控制器状态
+-serverstatus: 对应站级服务器，用于查询对应站级服务器状态
+-cardreaderstatus: 读卡器状态，用于查询读卡器状态
+-railerstatus: 自动栏杆机，用于查询自动栏杆机状态
+-payequipmentstatus: 移动支付设备，用于查询移动支付设备状态
+-vplrstatus: 车牌识别状态，用于查询车牌识别状态
+-vehdetectorstatus: 车检器状态，用于查询车检器状态
+-axledetectorstatus: 轴型检测器状态，用于查询轴型检测器状态
+-lightdetectorstatus: 光栅状态，用于查询光栅状态
+-hdvideostatus: 车道摄像机状态，用于查询车道摄像机状态
+-feeboardstatus: 费额显示屏状态，用于查询费额显示屏状态
+-hintsboardstatus: 信息提示屏状态，用于查询信息提示屏状态
+-tradfficlight1status: 通行信号灯状态，用于查询通行信号灯状态
+-infoboardstatus: ETC情报板状态，用于查询ETC情报板状态
+-entryoverloadstatus: 入口治超设施状态，用于查询入口治超设施状态
+-lanecontrollermanuid: 车道控制器厂商代码
+-sysver: 当前操作系统版本号，用于查询当前操作系统版本号
+-opscode: 车道软件厂商编号，用于查询车道软件厂商编号
+-opsver: 车道软件版本号，用于查询车道软件版本号
+-baserateversion: 基础费率版本，用于查询基础费率版本
+-provblackversion: 省内gd黑名单版本号
+-holidayfreeparaVersion: 节假日免费参数版本
+-spare1: 备用1
+-spare2: 备用2
+-spare3: 备用3
+-spare4: 备用4
+-savetime: 数据保存时间，用于查询数据保存时间
+-accepttime: 中心接收时间，用于查询中心接收时间
+-status: 状态，用于查询状态、按状态筛选、按状态分组统计
+-idx_sectionid: 路段编码索引
+-idx_hearttime: 心跳时间索引
+
+
+###gjdt_jd_base_device_card_info
+设备信息卡，用于记录机电设备的标准名称、所属系统、使用场景、单位、采购价格、品牌型号、招标年度、技术参数、集采标记及供应商信息，支持按设备类型、标准名称、品牌、型号、系统、集采状态等多维度查询和统计分析，可统计设备数量、平均采购价、供应商分布及集采情况，支持设备卡详情及关联供应商信息的查询:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-created_by: 创建人ID，用于查询创建人ID
+-update_time: 更新时间
+-updated_by: 更新人ID
+-device_id: 设备标准名称id，用于查询设备标准名称id、按设备标准名称id筛选
+-device_name: 设备标准名称，用于查询设备标准名称、按设备标准名称筛选、按设备标准名称分组统计
+-system_ids: 所属系统id列表，用于查询所属系统id列表
+-system_names: 所属系统名称列表，用于查询所属系统名称列表
+-usage_scenario: 使用场景，用于查询使用场景
+-unit: 单位，用于查询单位
+-his_buying_lowest_price: 历史采购最低价（元），用于查询历史采购最低价
+-his_buying_highest_price: 历史采购最高价（元），用于查询历史采购最高价
+-his_buying_average_price: 历史采购均价（元），用于查询历史采购均价、按历史采购均价筛选
+-brand_name: 品牌（招标参数），用于查询品牌、按品牌筛选、按品牌分组统计
+-model_name: 型号（招标参数），用于查询型号
+-bidding_year: 招标年度（招标参数），用于查询招标年度
+-technical_param: 技术参数（招标参数），用于查询技术参数
+-deleted: 是否逻辑删除
+-central_buy_flag: 集采标记，用于查询集采标记、按集采标记筛选和分组统计
+
+
+###gjdt_jd_base_device_card_supplier_paras
+设备卡供应商信息表，用于记录机电设备卡对应的供应商信息、品牌型号、技术参数及年份等详细数据，支持按设备卡ID、供应商名称、品牌、型号、设备标准名称、年份等多维度查询设备卡及其供应商参数信息，支持统计各供应商、各品牌、各设备标准名称、各年份的设备卡数量，便于设备卡供应商信息的管理与分析:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-device_card_id: 设备卡ID，用于查询设备卡ID
+-device_id: 设备标准名称id，用于查询设备标准名称id、按设备标准名称id筛选
+-device_name: 设备标准名称，用于查询设备标准名称、按设备标准名称筛选、按设备标准名称分组统计
+-supplier_id: 供应商ID，用于查询供应商ID
+-supplier_name: 供应商名称，用于查询供应商名称、按供应商名称筛选、按供应商名称分组统计
+-brand_name: 品牌，用于查询品牌、按品牌筛选、按品牌分组统计
+-model_name: 型号，用于查询型号
+-technical_param: 技术参数，用于查询技术参数
+-update_time: 更新时间
+-supplier_year: 年份，用于查询年份、按年份筛选、按年份分组统计
+
+
+###gjdt_jd_base_devicerecord
+设备信息表，用于记录机电设备的全生命周期信息，包括设备基础属性、位置坐标、技术参数、管理维护、资产状态等，支持按设备ID、名称、型号、安装日期、健康值、管理单位、安装位置等多维度查询，可统计设备总数、健康状态分布、维修情况、资产来源及变动情况，支持查询新件设备、维修记录、最近安装或修改的设备，满足设备资产管理、运维分析及数据管家相关需求:
+-deviceid: 设备PK，用于查询设备ID、按设备ID筛选、按设备ID分组统计、关联查询
+-dict_id: 设备标准名称id，用于查询设备标准名称id、关联查询
+-assetsno: 资产编码(业主)，用于查询资产编码、按资产编码筛选
+-unit: 单位，用于查询单位
+-devicename: 设备名称，用于查询设备名称、按设备名称筛选、按设备名称分组统计
+-system_id: 机电系统分类，用于查询机电系统分类
+-systemname: 机电系统名称，用于查询机电系统名称、按机电系统名称筛选、按机电系统名称分组统计
+-subsystemname: 机电子系统分类名称，用于查询机电子系统分类名称、按机电子系统分类名称筛选、按机电子系统分类名称分组统计
+-brandinfo_id: 品牌信息id，用于查询品牌信息id
+-brand_name: 品牌信息名称，用于查询品牌信息名称、按品牌信息名称筛选、按品牌信息名称分组统计
+-deviceno: 设备编号，用于查询设备编号、按设备编号筛选
+-material: 材质，用于查询材质
+-installdate: 安装日期，用于查询安装日期、按安装日期排序
+-serianumber: 产品序列号，用于查询产品序列号
+-sort_id: 设备分类id，用于查询设备分类id
+-health_value: 设备健康值，用于查询设备健康值、按设备健康值筛选、按设备健康值分组统计
+-health_name: 设备健康对应名称，用于查询设备健康对应名称、按设备健康对应名称筛选、按设备健康对应名称分组统计
+-manageunit: 管理单位名称，用于查询管理单位名称
+-managedepartment: 管理部门名称，用于查询管理部门名称
+-geographyinfo_id: 安装位置id，用于查询安装位置id
+-pgeographyinfo_id: 父安装位置id，用于查询父安装位置id
+-wayname: 方向名称，用于查询方向名称
+-end_stakenodes: 结束桩号描述，用于查询结束桩号描述
+-specmodel: 规格型号，用于查询规格型号、按规格型号筛选
+-center_offnodes: 中间桩号描述，用于查询中间桩号描述
+-propertyrightunit: 产权单位名称，用于查询产权单位名称
+-manageunit_id: 管理单位ID，用于查询管理单位ID
+-zrname: 责任人，用于查询责任人
+-usedepartment: 使用部门名称，用于查询使用部门名称
+-usename: 使用者，用于查询使用者
+-sort_name: 设备分类名称，用于查询设备分类名称、按设备分类名称筛选、按设备分类名称分组统计
+-buydate: 购买日期，用于查询购买日期、按购买日期筛选、按购买日期排序
+-recorddate: 建卡日期，用于查询建卡日期
+-startusedate: 开始使用时间，用于查询开始使用时间
+-waysection_id: 路段id，用于查询路段id、按路段id筛选、按路段id分组统计、关联查询
+-waysectionname: 路段名称，用于查询路段名称、按路段名称筛选、按路段名称分组统计
+-assetssource: 资产来源，用于查询资产来源
+-step: 步长，用于查询步长
+-subsystem_id: 机电子系统分类
+-buyprice: 购买价格，用于查询购买价格
+-location: 地理位置，用于查询地理位置
+-begin_stakenodes: 开始桩号描述，用于查询开始桩号描述
+-longitude: 经度，用于查询经度
+-latitude: 纬度，用于查询纬度
+-propertyrightunit_id: 产权单位ID，用于查询产权单位ID
+-zrdepartment: 责任部门名称，用于查询责任部门名称
+-isnewobj: 是否为新件，用于查询是否为新件
+-remark: 备注，用于查询备注
+-healthoffset: 生命值人工纠偏数据，用于查询生命值人工纠偏数据
+-faultnum: 维修次数，用于查询维修次数、按维修次数筛选、按维修次数排序
+-dictsortname: 分类名称，用于查询分类名称
+-levelname: 等级名称，用于查询等级名称
+-guid: GUID，用于查询GUID
+-createtime: 创建时间，用于查询创建时间、按创建时间筛选、按创建时间排序
+-modifytime: 修改时间，用于查询修改时间、按修改时间筛选、按修改时间排序
+-deletetime: 删除时间
+-org_id: 组织机构ID，用于查询组织机构ID
+-section_id: 路段编码(国标)，用于查询路段编码、按路段编码分组统计
+-delete_flag: 删除标识
+-dict_sort_id: 800章系统分类id，用于查询800章系统分类id
+-third_pdict_sort_id: 800章分类第三层级
+-sec_pdict_sort_id: 800章分类第二层级
+-first_pdict_sort_id: 800章分类第一层级
+-store_id: 仓库ID，用于查询仓库ID、按仓库ID筛选
+-store_name: 仓库名称，用于查询仓库名称
+-dict_sort_code: 800章分类编码，用于查询800章分类编码
+-lcenter_offsetvalue: 距中心线左偏移
+-rcenter_offsetvalue: 距中心线右偏移
+-managestatus: 管理状态，用于查询管理状态、按管理状态筛选、按管理状态分组统计
+-workstatus: 工作状态，用于查询工作状态、按工作状态筛选、按工作状态分组统计
+-supplier: 供应商，用于查询供应商、按供应商筛选、按供应商分组统计
+-manufacturer: 生产商，用于查询生产商
+-operatingsystem: 操作系统，用于查询操作系统
+-dbname: 数据库，用于查询数据库
+-savetime: 数据保存时间，用于查询数据保存时间
+-fromdict_id: 来自1端定义的设备名称ID
+-requirelistno: 需求清单编号
+-devicenosort: 设备按分类排序
+-maintainno: 养护编码
+-weight: 数量、重量，用于查询数量、重量
+-useyear: 使用年限，用于查询使用年限
+-oldmanagestatus: 旧管理状态
+-oldworkstatus: 旧工作状态
+-length: 长度，用于查询长度
+-way: 方向，用于查询方向
+-begin_stakeno: 开始桩号
+-end_stakeno: 结束桩号
+-center_offno: 中间桩号
+-begin_stakenok: 开始桩号K
+-begin_stakenom: 开始桩号M
+-end_stakenok: 结束桩号K
+-end_stakenom: 结束桩号M
+-center_offnok: 中间桩号K
+-center_offnom: 中间桩号M
+-zrdepartmentid: 责任部门ID
+-usedepartment_id: 使用部门ID
+-manufacturer_id: 生成商ID，用于查询生成商ID
+-factorydate: 出厂日期，用于查询出厂日期
+-madecountry: 制造国别，用于查询制造国别
+-factorynumber: 出厂编号，用于查询出厂编号
+-drawingnumber: 图号，用于查询图号
+-supplier_id: 供应商ID，用于查询供应商ID
+-effectivestartdate: 厂家保修有效开始期，用于查询厂家保修有效开始期
+-effectiveenddate: 厂家保修有效结束期，用于查询厂家保修有效结束期、按厂家保修有效结束期筛选
+-barcodeprintamt: 简码打印记录数
+-defaultimgpath: 默认图片路径
+-creator: 创建人
+-modifier: 修改人
+-devicerecord_id: 旧设备ID
+-pushid: 待入库清单ID
+-faultoffset: 维修扣分
+-location1: 数据导入时安装位置
+-num: 数量，用于查询数量、按数量筛选
+-varietyname: 种类名称
+-levelid: 等级ID，用于查询等级ID
+-modifier_comid: 修改人所有公司
+-dict_sort_id1: 一级分类ID
+-dict_sort_id2: 二级分类ID
+-dict_sort_id3: 三级分类ID
+-pushrequirelistno: 1中心需求采购入库
+-barcode: 设备条码，用于查询设备条码
+-newlongitude: 桩号对应的经度
+-newlatitude: 桩号对应的纬度
+-plat_asset_code: 地图资产编码
+-plat_asset_lng: 地图资产经度
+-plat_asset_lat: 地图资产纬度
+-plat_asset_alt: 地图资产高度
+-plat_asset_flag: 地图资产挂接标记
+-plat_facility_id: 资产编码
+-plat_facility_flag: 资产标记
+-device_type: 设备类型，用于查询设备类型、按设备类型筛选、按设备类型分组统计
+-sort: 排序
+
+
+###gjdt_jd_frame_orgstruc_orgunit
+组织机构表，用于记录组织机构的基本信息、联系信息、管理班子、分管领导、区域代码、管理路段和公司分类等，支持按组织机构ID、名称、简称、层级码、父组织、机构类型、状态等多条件查询和筛选，支持统计各机构类型及状态的组织数量，可用于组织结构管理和路段分布分析:
+-id: 编号，用于查询编号、按编号筛选、关联查询
+-orgId: 组织机构ID，用于查询组织机构ID、按组织机构ID筛选
+-orgName: 组织机构名称，用于查询组织机构名称、按组织机构名称筛选
+-orgShortName: 组织机构简称，用于查询组织机构简称
+-orgEngName: 组织机构英文名
+-orgLevelCode: 层级码，用于查询层级码
+-parentOrgId: 父组织机构ID，用于查询父组织机构ID
+-orgType: 机构类型，用于查询机构类型、按机构类型筛选、按机构类型分组统计
+-orgState: 组织机构状态，用于查询组织机构状态、按组织机构状态筛选、按组织机构状态分组统计
+-orgAddress: 组织地址，用于查询组织地址
+-orgPostCode: 组织邮编
+-orgEmail: 组织邮箱，用于查询组织邮箱
+-orgPhone: 组织电话，用于查询组织电话
+-orgFax: 组织传真
+-orgSort: 排序号
+-managers: 组织管理班子，用于查询组织管理班子
+-managerIds: 组织管理班子编号，用于查询组织管理班子编号
+-leaders: 分管领导，用于查询分管领导
+-leaderIds: 分管领导编号，用于查询分管领导编号
+-topOrgs: 上级主管机构
+-topOrgIds: 上级主管机构编号
+-memo: 备注
+-company_id: 公司编号
+-lastModifyTime: 最后修改时间
+-queryCode: 查询层级码，用于查询查询层级码
+-orgTypeExt: 组织机构类型扩展
+-areacode: 区域代码，用于查询区域代码
+-manage_roadids: 管理路段编号，用于查询管理路段编号
+-department_type: 部门类型
+-isroad: 是否路段，用于查询是否路段
+-feeroadid: 收费路段编号
+-roadno_varchar: 道路名称
+-roadno: 路段编号，用于查询路段编号
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+-deleted: 是否逻辑删除
+-tenantId: 租户ID
+-orgCode: 组织机构代码
+-orgClass: 公司分类，用于查询公司分类
+-orgContact: 联系人
+-dgcgNumber: 集团唯一编码
+-uumsOrgId: 统一用户平台id
+
+
+###gjdt_jd_ops_order_fault_info
+故障工单信息表，用于记录故障工单的全生命周期信息，包括故障来源、发生时间、地理位置、路段、组织机构、服务类型、故障类型、故障等级、工单状态、处理进度、解决方案、反馈状态、修复状态等，支持按时间、业务ID、原系统工单编号、故障来源、服务类型、故障等级、工单状态、解决方式等多维度查询和统计，可统计各故障来源、故障等级、服务类型、故障类型、解决方式、修复状态的工单数量，支持查询特定业务ID、特定故障来源、特定服务类型、特定故障等级、特定工单状态、特定解决方式、特定修复状态的工单，支持查询专家工单及最新发生的故障工单，支持统计各时间段故障发生数量、重大故障情况、故障类型数量及平均处理时长、故障工单关联设备数量及设备故障概率、摄像枪故障率等分析需求:
+-id: 主键ID，用于查询主键ID、按主键ID筛选、关联查询
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-created_by: 创建人ID，用于查询创建人ID
+-update_time: 更新时间
+-updated_by: 更新人ID
+-business_id: 业务ID，用于查询业务ID、按业务ID筛选
+-source_order_no: 原N系统工单编号，用于查询原N系统工单编号
+-source: 故障来源，用于查询故障来源、按故障来源筛选、按故障来源分组统计
+-happen_time: 故障发生时间，用于查询故障发生时间、按故障发生时间筛选、按故障发生时间排序
+-fault_des: 故障描述，用于查询故障描述、关联查询
+-reporter_id: 报障人ID，用于查询报障人ID
+-reporter_name: 报障人姓名，用于查询报障人姓名
+-reporter_org_id: 报障人所属组织机构ID
+-reporter_org_name: 报障人所属单位，用于查询报障人所属单位
+-reporter_phone: 报障人联系电话，用于查询报障人联系电话
+-report_time: 报障时间，用于查询报障时间
+-need_solve_time: 工单要求截止时间，用于查询工单要求截止时间
+-geographyinfo_id: 地理位置ID，用于查询地理位置ID
+-geographyinfo_hole_name: 地理位置全名称，用于查询地理位置全名称
+-section_id: 收费路段id，用于查询收费路段id、按收费路段id分组统计
+-org_id: 组织机构ID，用于查询组织机构ID
+-service_type: 服务类型，用于查询服务类型、按服务类型筛选、按服务类型分组统计
+-electromechanical_type: 机电类型，用于查询机电类型
+-electromechanical_secondary_type: 二级类型（机电系统)，用于查询二级类型
+-fault_primary_type: 故障类型（一级），用于查询故障类型、按故障类型分组统计
+-fault_secondary_type: 故障类型(二级)，用于查询故障类型
+-fault_tertiary_type: 故障类型（三级），用于查询故障类型
+-fault_level: 故障等级，用于查询故障等级、按故障等级筛选、按故障等级分组统计
+-status: 工单状态，用于查询工单状态、按工单状态筛选、按工单状态分组统计
+-accepter_id: 受理人ID，用于查询受理人ID
+-accept_time: 受理时间，用于查询受理时间
+-handler_id: 处理人ID，用于查询处理人ID
+-handle_time: 处理完成时间，用于查询处理完成时间
+-reason_analysis: 原因分析，用于查询原因分析
+-solve_type: 解决方式，用于查询解决方式、按解决方式筛选、按解决方式分组统计
+-solution: 解决方案，用于查询解决方案
+-reviewer_id: 复核人ID，用于查询复核人ID
+-review_time: 复核时间，用于查询复核时间
+-review_des: 复核意见，用于查询复核意见
+-abolisher_id: 废除人ID，用于查询废除人ID
+-abolish_time: 废除时间，用于查询废除时间
+-abolish_des: 废除意见，用于查询废除意见
+-feedback_status: 反馈状态，用于查询反馈状态
+-repair_status: 修复状态，用于查询修复状态、按修复状态筛选、按修复状态分组统计
+-repair_des: 修复说明，用于查询修复说明
+-expert_flag: 专家工单标记，用于查询专家工单标记、按专家工单标记筛选
+-handler_phone: 处理人电话，用于查询处理人电话
+-feedback_time: 反馈时间，用于查询反馈时间
+-handler_name: 处理人姓名，用于查询处理人姓名
+-fault_locate_type: 故障位置类型，用于查询故障位置类型
+-fault_locate_id: 故障位置id，用于查询故障位置id
+-fault_locate_name: 故障位置名称，用于查询故障位置名称
+-order_property: 工单属性，用于查询工单属性
+-created_by_name: 登记人员，用于查询登记人员
+-exempt_length: 豁免时长，用于查询豁免时长
+-deleted: 逻辑删除默认
+-customer_org_id: 客户单位id，用于查询客户单位id
+-customer_org_name: 客户单位名称，用于查询客户单位名称
+-transRetentionNum: 交易流水滞留条数
+-plateRetentionNum: 牌识流水滞留条数
+-relate_product: 涉及产品/服务ID
+-quality_flag: 新增缺陷工单/需求工单标志
+
+
+###gjdt_jd_ops_order_fault_info_xy
+故障单信息（新粤），用于记录新粤系统故障单的详细信息，包括故障基本信息、处理进度、评价反馈、关联设备及维修记录，支持按故障单编号、所属系统、状态、故障等级、路段、养护单位等多维度查询和统计分析，可统计各系统、状态、等级、分类、修复情况、路段、养护单位的故障单数量，支持查询特定条件下的故障单详情及最新评价内容:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-belong_system_type: 所属系统，用于查询所属系统、按所属系统筛选和分组统计
+-faultid: 故障单ID，用于查询故障单ID、按故障单ID筛选、关联查询
+-faultno: 故障单编号，用于查询故障单编号、按故障单编号筛选
+-system_id: 所属系统id，用于查询所属系统id
+-geographyinfo_id: 地理位置id，用于查询地理位置id
+-happentime: 发生时间，用于查询发生时间、按发生时间排序
+-des: 故障描述，用于查询故障描述
+-todept: 报修情况，用于查询报修情况
+-addtime: 报修日期，用于查询报修日期
+-updatetime: 更新时间
+-add_realname: 填写人，用于查询填写人
+-uidtel: 联系电话，用于查询联系电话
+-status: 状态，用于查询状态、按状态筛选、按状态分组统计
+-hopcompanyid: 养护单位id，用于查询养护单位id
+-faulttype: 故障类型，用于查询故障类型
+-waysection_id: 路段id，用于查询路段id、按路段id筛选、按路段id分组统计、关联查询
+-geographyinfo_name: 地理位置，用于查询地理位置
+-system_name: 所属系统名称，用于查询所属系统名称
+-txt1: 项目部故障情况确认，用于查询项目部故障情况确认
+-txt2: 技术支持组故障情况确认，用于查询技术支持组故障情况确认
+-txt3: 项目部解决方案，用于查询项目部解决方案
+-txt4: 项目部未修复原因，用于查询项目部未修复原因
+-txt5: 技术支持组解决方案，用于查询技术支持组解决方案
+-txt6: 技术支持组未修复原因，用于查询技术支持组未修复原因
+-fixed: 修复情况，用于查询修复情况、按修复情况筛选、按修复情况分组统计
+-uprealname: 报修人，用于查询报修人
+-faultlevel: 故障等级，用于查询故障等级、按故障等级筛选、按故障等级分组统计
+-skipyz: 是否跳过业主受理，用于查询是否跳过业主受理
+-faultkind: 故障分类，用于查询故障分类、按故障分类筛选、按故障分类分组统计
+-waysection_name: 路段名称，用于查询路段名称、按路段名称筛选、按路段名称分组统计、按路段名称排序、关联查询
+-hop_name: 养护单位名称，用于查询养护单位名称、按养护单位名称筛选、按养护单位名称分组统计、按养护单位名称排序
+-sync_detail_flag: 是否同步详情，用于查询是否同步详情
+-save_time: 保存时间
+-device_alarm_id: 设备告警编号，用于查询设备告警编号
+-net_fault_id: 故障单排序
+-rep_zxdwsl_status: 执行单位受理阶段超时状态，用于查询执行单位受理阶段超时状态
+-rep_gzcl_status: 故障处理阶段超时状态，用于查询故障处理阶段超时状态
+
+
+###gjdt_jd_base_tolllane
+收费车道表，用于记录机电收费车道的基本信息、技术参数、运行状态及设备配置，包括车道编号、类型、使用状态、心跳状态、RSU信息、归属区域、路段及收费站编码等，支持按车道编号、类型、状态、路段、收费站、出入口类型、栏杆位置、治超情况等多维度查询，支持统计各车道类型、使用状态、出入口类型、栏杆位置、治超情况、路段及收费站的车道数量及状态分布，支持查询车道设备详情、异常状态、创建时间、起止日期、潮汐车道反向时间、HEX字符串、IP地址、厂商代码及型号等信息，支持机电一张图相关查询及状态分析:
+-id: 收费车道编号，用于查询收费车道编号、按收费车道编号筛选、关联查询
+-type: 车道类型，用于查询车道类型、按车道类型筛选、按车道类型分组统计
+-laneNum: 土建车道号，用于查询土建车道号
+-tidalTime: 潮汐车道反向时间，用于查询潮汐车道反向时间
+-startTime: 起始日期，用于查询起始日期
+-endTime: 终止日期，用于查询终止日期
+-status: 使用状态，用于查询使用状态、按使用状态筛选、按使用状态分组统计
+-laneHex: 车道HEX字符串，用于查询车道HEX字符串
+-rsuManUID: RSU厂商代码，用于查询RSU厂商代码
+-rsuModel: RSU型号，用于查询RSU型号
+-rsuID: RSU编号，用于查询RSU编号
+-netRoadId: 归属区域编码，用于查询归属区域编码
+-roadno: 省内路段编码，用于查询省内路段编码
+-stationno: 省内站编码，用于查询省内站编码
+-squareno: 广场编码，用于查询广场编码
+-laneno: 车道编码，用于查询车道编码
+-lanecomputerip: 车道机器IP，用于查询车道机器IP
+-sectionid: 收费路段编号（国标），用于查询收费路段编号、按收费路段编号筛选、按收费路段编号分组统计
+-stationid: 收费站编号（国标），用于查询收费站编号、按收费站编号筛选、按收费站编号分组统计
+-entryExitType: 出入口类型，用于查询出入口类型、按出入口类型筛选、按出入口类型分组统计
+-railingPos: 车道栏杆位置，用于查询车道栏杆位置、按车道栏杆位置筛选、按车道栏杆位置分组统计
+-ifContainLimitWeight: 是否有治超，用于查询是否有治超
+-vPLRManUID: 牌识厂商代码，用于查询牌识厂商代码
+-spare1: 备用
+-spare2: 备用
+-spare3: 备用
+-spare4: 备用
+-spare5: 备用
+-spare6: 备用
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+
+
+###gjdt_jd_base_device_change
+设备出入库表，用于记录机电设备的出入库、调拨等变动信息，包含变动类型、申请日期、合同编号、设备数量、原仓库、新仓库、领用部门、用途、养护公司、领用人、添加人、状态、原因、变动确认时间等字段，支持按设备编号、变动编号、状态、类型、入库类型、品牌等多维度查询和统计分析，可统计各状态、类型、入库类型的设备变动数量及总设备数量，支持查询最新或指定条件的设备变动记录及其明细信息：:
+-changeId: 主键id，用于查询主键id、按主键id筛选、关联查询
+-waysectionId: 路段，用于查询路段
+-dateCreate: 申请日期，用于查询申请日期、按申请日期排序
+-reason: 原因，用于查询原因
+-changeNo: 变动编号，用于查询变动编号、按变动编号筛选
+-changeSort: 排序
+-status: 状态，用于查询状态、按状态筛选和分组统计
+-type: 出入库类型，用于查询出入库类型、按出入库类型筛选和分组统计
+-storeType: 入库类型/出库类型，用于查询出入库类型、按出入库类型筛选和分组统计
+-storeidO: 原仓库ID，用于查询原仓库ID
+-storeOMan: 原仓库管理人，用于查询原仓库管理人
+-storeidN: 新仓库，用于查询新仓库
+-storeNMan: 新仓库管理人，用于查询新仓库管理人
+-dept: 领用部门，用于查询领用部门
+-changeUse: 用途，用于查询用途
+-guid: guid，用于查询guid
+-fromGuid: 数据来源-盘点表
+-hopCompanyid: 养护公司ID，用于查询养护公司ID
+-addCompanyid: 录入公司
+-addUser: 添加人，用于查询添加人
+-addTime: 添加时间，用于查询添加时间、按添加时间排序
+-reqUser: 领用人，用于查询领用人
+-determineTime: 变动确认时间，用于查询变动确认时间
+-modifyTime: 更新时间
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-syncDetailFlag: 同步详情标识
+-deviceNum: 变动的设备数量，用于查询变动的设备数量
+-htNo: 合同编号，用于查询合同编号
+-sort: 排序
+
+
+###gjdt_jd_base_store_info
+仓库信息表，用于记录仓库的基本信息和管理信息，包括仓库ID、名称、位置、用途、路段、编码、类型、面积、联系人、备注、经纬度、所属公司、片区、养护单位和组织机构等，支持查询所有仓库信息及其字段内容，支持按仓库类型、路段、组织机构等条件筛选和统计仓库数量，便于仓库资源的分类管理和空间分布分析：:
+-storeid: 仓库id，用于查询仓库ID、按仓库ID筛选
+-storename: 仓库名称，用于查询仓库名称、按仓库名称筛选
+-location: 位置，用于查询位置
+-storeuse: 主要用途，用于查询主要用途
+-waysection_id: 路段ID，用于查询路段ID、按路段ID筛选、按路段ID分组统计、关联查询
+-storeno: 编码，用于查询编码
+-storetype: 仓库类型，用于查询仓库类型、按仓库类型筛选、按仓库类型分组统计
+-storesize: 面积，用于查询面积
+-contact: 联系人，用于查询联系人
+-remark: 备注，用于查询备注
+-longitude: 经度，用于查询经度
+-latitude: 纬度，用于查询纬度
+-companyid: 公司id，用于查询公司ID
+-addtime: 添加时间，用于查询添加时间
+-createauto: 是否自动新增
+-guid: guid，用于查询guid
+-modifytime: 修改时间，用于查询修改时间、按修改时间筛选、按修改时间排序
+-area_id: 片区ID，用于查询片区ID
+-hopcompanyid: 公司id，用于查询养护单位ID
+-saveTime: 入库时间，用于查询入库时间
+-org_id: 对应1中心的组织机构id，用于查询对应1中心的组织机构id
+-org_name: 对应1中心的组织机构名称，用于查询对应1中心的组织机构名称
+
+
+###gjdt_jd_base_daily_maintain_point
+日养网点基础信息表，用于记录日常养护网点的基本信息、管理信息、所属单位及仓库情况，包括网点名称、所属片区、位置坐标、面积、人员配置、车辆数量、仓库信息等，支持查询所有网点信息、按名称、单位、片区等条件筛选网点，查询网点管辖路段，统计各日养单位的网点数量、人员和车辆总数，支持多维度查询、统计与分析:
+-id: id，用于查询id、按id筛选、关联查询
+-maintain_point_name: 养护网点名称，用于查询养护网点名称、按养护网点名称筛选、按养护网点名称分组统计
+-region_id: 所属片区id，用于查询所属片区id
+-parent_maintain_point_id: 上一个网点，用于查询上一个网点
+-maintain_org_id: 日养单位id，用于查询日养单位id
+-maintain_org_name: 日养单位，用于查询日养单位、按日养单位筛选、按日养单位分组统计
+-address: 地点，用于查询地点
+-proportion: 面积，用于查询面积
+-lng: 经度，用于查询经度
+-lat: 纬度，用于查询纬度
+-maintain_usr_num: 养护人员数量，用于查询养护人员数量
+-maintain_car_num: 养护车辆数量，用于查询养护车辆数量
+-store_id: 仓库id，用于查询仓库ID、按仓库ID筛选
+-store_name: 仓库名称，用于查询仓库名称
+-save_time: 保存时间
+-update_time: 更新时间
+-create_by: 创建人
+-create_by_name: 创建人名称
+-update_by: 更新人
+-update_by_name: 更新人员
+-store_op: 仓库人员，用于查询仓库人员
+-store_mobile: 仓库人员手机号，用于查询仓库人员手机号
+
+
+###gjdt_jd_base_store_inventory
+仓库盘点记录，用于记录仓库盘点的基本信息、参与人员、复核状态及差异明细，支持查询所有盘点记录及其编号、日期、仓库、盘点人、录入人、路段、养护单位、摘要和复核信息，可查询已复核记录、指定编号或ID的盘点详情，统计各仓库盘点次数及差异设备数量，支持按盘点ID或编号查询完整盘点记录及设备明细:
+-inventoryId: 主键id，用于查询主键id、按主键id筛选、按主键id分组统计
+-inventoryNo: 编号，用于查询编号、按编号筛选、按编号分组统计
+-inventoryDate: 盘点日期，用于查询盘点日期、按盘点日期分组统计、按盘点日期排序
+-storeId: 盘点仓库，用于查询盘点仓库、按盘点仓库分组统计
+-inventoryUser: 盘点人，用于查询盘点人
+-remark: 盘点摘要，用于查询盘点摘要
+-addUser: 录入人，用于查询录入人
+-addCompanyid: 录入公司
+-addTime: 录入时间，用于查询录入时间、按录入时间排序
+-waysectionId: 路段id，用于查询路段id
+-hopcompanyId: 养护单位id，用于查询养护单位id
+-guid: guid，用于查询guid
+-checkUser: 复核人，用于查询复核人、按复核人筛选
+-checkTime: 复核时间，用于查询复核时间、按复核时间筛选
+-sendTime: 发送复核时间
+-modifyTime: 更新时间
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-syncDetailFlag: 同步详情标识
+-sort: 排序
+
+
+###gjdt_jd_base_sectionproperties
+路段基础属性表，用于记录路段的基本信息、组织机构归属及设备接入状态，包括路段编码、区域、二级单位名称、开发商编码、集团标识、道路接入标识、父组织机构、监控路段编号、车道数、门架数、机电摄像枪数、机电情报板数等字段，支持查询所有路段属性信息及具体字段内容，支持按路段编码、名称、区域等条件进行精准查询，支持统计各区域及设备接入标识的路段数量、总车道数、总设备数量，可分析路段设备接入情况及设备在线状态:
+-id: 路段编码，用于查询路段编码、按路段编码筛选、关联查询
+-orgname: 二级单位名称,实际是路段名称，用于查询二级单位名称（路段名称）、按二级单位名称（路段名称）筛选
+-opscode: 开发商编码，用于查询开发商编码
+-group_flag: 集团标识，用于查询集团标识
+-region_id: 区域id，用于查询区域id
+-device_flag: 设备接入标识，用于查询设备接入标识、按设备接入标识筛选、按设备接入标识分组统计
+-org_id: 组织机构id，用于查询组织机构id
+-region_name: 路段区域，用于查询路段区域、按路段区域筛选、按路段区域分组统计
+-road_access_flag: 接入标识，用于查询是否接入
+-parentOrgId: 路段父组织机构id，用于查询路段父组织机构id
+-caller_id: 调用方token
+-grandparentOrgId: 路段祖父组织机构ID
+-ischeck: 是否检查
+-monitorroadid: 监控路段编号，用于查询监控路段编号
+-lane_num: 车道数，用于查询车道数
+-gantry_num: 门架数，用于查询门架数
+-camera_num: 摄像枪数，用于查询摄像枪数
+-vms_num: 情报板数，用于查询情报板数
+-eserve_bnet_road_alias: 联合电服骨干网网元路段别名
+
+
+###gjdt_jd_base_device_change_detail
+设备出入库明细表，用于记录机电设备的出入库变动信息，包括设备ID、设备名称、规格型号、品牌、分类、系统分类、仓库位置、变动类型、数量、备注及设备变动ID等字段，支持按设备名称、品牌、变动类型、系统分类、分类名称等多维度查询出入库明细，支持统计各品牌、各变动类型的设备出入库数量及总数量，支持查询最新变动记录、特定变动ID或设备ID的明细信息，可用于分析设备流动情况及关联设备健康指数数据:
+-changeId: 设备变动ID，用于查询设备变动ID、按设备变动ID筛选、关联查询
+-deviceId: 设备ID，用于查询设备ID、按设备ID筛选
+-changeType: 变动类型，用于查询变动类型、按变动类型分组统计
+-storeidN: 新仓库位置，用于查询新仓库位置
+-geographyinfoIdN: 新地理位置id，用于查询新地理位置id
+-storeidO: 原仓库位置，用于查询原仓库位置
+-geographyinfoIdO: 原地理位置id，用于查询原地理位置id
+-deviceName: 设备名称，用于查询设备名称、按设备名称筛选
+-specModel: 规格型号，用于查询规格 型号、按规格 型号筛选、按规格 型号分组统计
+-systemName: 机电系统分类名称，用于查询机电系统分类名称、按机电系统分类名称筛选、按机电系统分类名称分组统计
+-subSystemName: 机电子系统分类名称，用于查询机电子系统分类名称、按机电子系统分类名称筛选、按机电子系统分类名称分组统计
+-brandinfoId: 品牌信息，用于查询品牌信息
+-sortName: 分类名称，用于查询分类名称
+-remark: 备注，用于查询备注
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-dict_id: 设备标准名称id，用于查询设备标准名称id、关联查询
+-brandName: 品牌名称，用于查询品牌名称、按品牌名称筛选、按品牌名称分组统计、按品牌名称排序
+-num: 数量，用于查询数量、按数量筛选
+-devicelistno: 中标设备清单编号
+
+
+###gjdt_jd_ops_order_evaluation
+工单评价表，用于记录工单的服务态度、响应速度、处理速度等评价指标及评价人信息，支持查询所有评价信息及其工单ID、工单类型、评价时间、备注、忽略标志，可按工单ID、工单类型、评价人名称、所属单位等条件进行筛选，支持统计各类型工单的评价数量及各项指标的平均值，支持查询低分评价及最新评价详情:
+-id: 主键ID，用于查询主键ID、按主键ID筛选、关联查询
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-order_id: 工单ID，用于查询工单ID
+-order_type: 工单类型，用于查询工单类型、按工单类型筛选、按工单类型分组统计
+-service_attitude: 服务态度，用于查询服务态度、按服务态度筛选、关联查询
+-response_speed: 响应速度，用于查询响应速度、按响应速度筛选
+-handle_speed: 处理速度，用于查询处理速度、按处理速度筛选
+-evaluator_id: 评价人ID，用于查询评价人ID
+-evaluator_name: 评价人名称，用于查询评价人名称、按评价人名称筛选
+-evaluator_org_id: 评价人所属单位ID
+-evaluator_org_name: 评价人所属单位，用于查询评价人所属单位
+-evaluate_time: 评价时间，用于查询评价时间、按评价时间排序
+-remark: 备注，用于查询备注
+-ignore_flag: 忽略标志，用于查询忽略标志
+-ignore_remark: 忽略备注，用于查询忽略备注
+
+
+###gjdt_jd_device_alarm_msg
+设备告警信息表，用于记录机电设备的告警详情，包括设备ID、设备名称、设备类别、路段、告警等级、告警描述、告警时间、数据来源、发送目标、最新记录标识等，支持查询所有机电设备告警信息、按设备ID、设备名称、告警等级、数据来源、设备类别、路段等多维度查询和统计告警数量，支持查询最新告警、紧急告警、亚健康设备告警及综合健康状态，可统计各系统、品牌设备的告警与健康指数分布，支持TOP10告警设备分析及综合视图查询:
+-id: 主键，用于查询主键、按主键筛选、关联查询
+-device_id: 设备id，用于查询设备id、按设备id筛选
+-device_name: 设备名称，用于查询设备名称、按设备名称筛选、按设备名称分组统计
+-alarm_level: 告警等级，用于查询告警等级、按告警等级筛选、按告警等级分组统计
+-alarm_desc: 告警描述，用于查询告警描述
+-alarm_time: 告警时间，用于查询告警时间、按告警时间排序
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-section_id: 路段id，用于查询路段id、按路段id分组统计
+-new_flag: 最新的接收记录标识，用于查询最新的接收记录标识、按最新的接收记录标识筛选
+-belong_to: 数据来源，用于查询数据来源、按数据来源筛选、按数据来源分组统计
+-send_to: 发送数据的目标业务系统，用于查询发送数据的目标业务系统
+-alarm_id: 告警ID，用于唯一标识告警信息，用于查询告警ID
+-category: 设备类别，用于查询设备类别、按设备类别筛选、按设备类别分组统计
+
+
+###gjdt_jd_base_waysection
+路段信息表，用于记录路段的基本信息、所属区域、组织机构、营运公司及片区编码等属性，支持按路段ID、编码、全称、简称、路段号、收费路段编号、国标路段ID等多条件查询，可统计各区域、各片区的路段数量及设备数量，支持查询设备所属路段及健康状态分布，适用于广乐高速等特定路段的详细信息及设备信息查询，满足多维度路段与设备数据管理需求:
+-waysection_id: 路段id，用于查询路段id、按路段id筛选、按路段id分组统计、关联查询
+-code: 编码，用于查询编码
+-areano: 所属区域编号，用于查询所属区域编号、按所属区域编号筛选、按所属区域编号分组统计、关联查询
+-ori_waysection_no: 收费路段编号，用于查询收费路段编号
+-waysection_name: 路段的全称，用于查询路段的全称、按路段的全称筛选、按路段的全称分组统计、按路段的全称排序、关联查询
+-waysection_sname: 路段简称，用于查询路段简称
+-owner_id: 组织机构id，用于查询组织机构id
+-opcomp_id: 营运公司ID，用于查询营运公司ID
+-waysection_no: 路段号系统生成，用于查询路段号系统生成
+-barrio: 片区编码，用于查询片区编码、按片区编码分组统计
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+-sectionid: 路段id(国标)，用于查询路段id、按路段id筛选、按路段id分组统计
+
+
+###gjdt_jd_ops_order_fault_device_rel_xy
+故障单设备关系表-新粤，用于记录新粤系统中故障单与设备的关联信息，包括设备编号、名称、型号规格、位置、所属系统、修复状态及关联故障单ID，支持查询所有故障单设备关系、按故障单ID或设备编号精准查询、统计各系统及路段的故障设备数量与修复情况，支持按修复状态、设备名称、养护单位等多维度筛选与分析，可综合查询故障单、设备及评价信息，统计故障设备修复率与评价分布，支持TOP10故障设备分析及具体故障详情追溯:
+-id: 主键id,用于查询主键id、按主键id筛选、关联查询
+-faultid: 故障单ID，用于查询故障单ID、按故障单ID筛选、关联查询
+-save_time: 保存时间
+-deviceid: 设备id，用于查询设备id、按设备id筛选、按设备id分组统计、关联查询
+-deviceno: 故障设备编号，用于查询故障设备编号、按故障设备编号筛选
+-devicename: 故障设备名称，用于查询故障设备名称、按故障设备名称筛选、按故障设备名称分组统计
+-specmodel: 故障设备型号规格，用于查询故障设备型号规格、按故障设备型号规格筛选
+-geographyinfo_id: 故障设置所在位置，用于查询故障设置所在位置
+-fixstatus: 修复状态，用于查询修复状态、按修复状态筛选、按修复状态分组统计
+
+
+###gjdt_jd_res_device_solution_recommended
+设备故障解决方案推荐结果表，用于记录机电设备故障的解决方案推荐信息，包括故障类型、故障等级、故障原因、原因分析、推荐解决方案及统计日期，支持按故障类型、故障等级、设备类型等条件查询和统计解决方案数量，可查询最新推荐方案及特定故障类型的解决方案：:
+-id: 序号，用于查询序号、按序号筛选、关联查询
+-faultLevel: 故障等级，用于查询故障等级、按故障等级筛选、按故障等级分组统计、关联查询
+-faultId: 故障类型，用于查询故障类型、按故障类型筛选、按故障类型分组统计、关联查询
+-faultInfo: 设备故障原因，用于查询设备故障原因
+-faultInfoId: 设备故障原因id，用于查询设备故障原因id
+-statisticDate: 统计日期，用于查询统计日期、按统计日期筛选、按统计日期排序、关联查询
+-recommendSolution: 推荐的解决方案，用于查询推荐的解决方案
+-recommendSolutionId: 推荐的解决方案对应id，用于查询推荐的解决方案对应id
+-reasonDesc: 原因分析，用于查询原因分析
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+
+
+###gjdt_jd_base_store_inventory_detail
+仓库盘点记录明细，用于记录每次盘点的设备信息、原数量、实际数量及差异情况，支持按盘点ID、设备名称、品牌等多维度查询和统计，可统计差异总数、各次盘点差异设备数量、各品牌盘点明细数量，支持查询最新盘点记录、已复核记录及具体设备的盘点详情，支持分析盘点差异较大的设备及差异数量分布:
+-inventoryId: 盘点id，用于查询盘点id、按盘点id筛选、按盘点id分组统计
+-dictId: 设备标准名称id，用于查询设备标准名称id
+-num: 原数量，用于查询原数量、按原数量筛选
+-realNum: 真实数量，用于查询真实数量
+-specModel: 规格型号，用于查询规格 型号、按规格 型号筛选、按规格 型号分组统计
+-deviceName: 设备名称，用于查询设备名称、按设备名称筛选
+-brandName: 品牌信息名称，用于查询品牌信息名称、按品牌信息名称筛选、按品牌信息名称分组统计、按品牌信息名称排序
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+
+
+###gjdt_jd_ops_order_fault_score_main_history_xy
+故障单评价主要历史表-新粤，用于记录新粤系统故障单的核心评价信息，包括评价内容、评价时间、工单类型、所属系统、养护单位及关联设备等，支持查询所有评价历史、按故障单ID、评价内容、工单类型、养护单位等多维度筛选，支持统计好评、中评、差评数量、各工单类型评价分布、各养护单位及路段的评价与修复情况，可综合查询故障单、设备及评价信息，满足评价分析、运维管理及修复效果评估需求：:
+-id: 主键id,用于查询主键id、按主键id筛选、关联查询
+-belong_system_type: 所属系统，用于查询所属系统、按所属系统筛选、按所属系统分组统计
+-faultid: 故障单ID，用于查询故障单ID、按故障单ID筛选、关联查询
+-save_time: 保存时间
+-mainscore: 好中差评，用于查询好中差评、按好中差评筛选、按好中差评分组统计、按好中差评排序
+-scoretime: 评价时间，用于查询评价时间、按评价时间排序
+-scorecomment: 评价内容，用于查询评价内容
+-orderType: 工单类型，用于查询工单类型、按工单类型筛选、按工单类型分组统计
+
+
+###gjdt_jd_monitor_road_device_alarm
+机电设备告警数据，用于记录路段设备的告警信息，包括告警时间、告警内容、设备类型、路段ID和设备编码等，支持查询所有告警数据、按设备编码/路段ID/设备类型筛选告警信息，支持查询最新告警、统计各路段和各设备类型的告警数量及告警频率，支持多维度查询和分析告警数据:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-deviceId: 设备编码，用于查询设备编码、按设备编码筛选
+-addTime: 产生的告警时间，用于查询产生的告警时间、按产生的告警时间排序
+-sectionId: 路段id(国标)，用于查询路段id、按路段id筛选、按路段id分组统计
+-alarmMsg: 告警内容，用于查询告警内容
+-deviceTypeNo: 设备类型id，用于查询设备类型id、按设备类型id筛选、按设备类型id分组统计
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+
+
+###gjdt_jd_base_daily_maintain_section
+日养网点管辖路段表，用于记录日养网点与路段的管辖关系，包含路段信息、养护网点信息及多养单位标志，支持查询日养网点与路段的关联信息、统计各养护网点及多养单位标志的路段数量，支持按网点ID、网点名称、路段ID、路段名称等条件查询管辖关系及详情：:
+-id: id，用于查询id、按id筛选、关联查询
+-maintain_point_id: 养护网点id，用于查询养护网点id、按养护网点id筛选、关联查询
+-maintain_point_name: 养护网点名称，用于查询养护网点名称、按养护网点名称筛选、按养护网点名称分组统计
+-section_id: 路段id，用于查询路段id、按路段id分组统计
+-section_name: 路段名称，用于查询路段名称、按路段名称筛选、关联查询
+-more_maintain_point_flag: 路段有多个日养单位，用于查询路段有多个日养单位、按路段有多个日养单位筛选、按路段有多个日养单位分组统计
+-save_time: 保存时间
+-update_time: 更新时间
+
+
+###gjdt_jd_monitor_camera_status
+摄像枪状态明细数据，用于记录机电摄像枪的设备编号、状态、统计时间及路段位置信息，支持查询所有状态明细及最新状态，可按设备编号、路段编码、状态或时间筛选具体状态信息，支持统计状态数量、各路段状态分布、在线率及最近一天各状态数量，适用于故障状态、未知状态等异常情况的快速定位与分析:
+-id: 设备编码+统计日期，用于查询设备编码+统计日期、按设备编码+统计日期筛选、关联查询
+-road_id: 路段编码(地标)，用于查询路段编码、按路段编码筛选、按路段编码分组统计
+-section_id: 路段编码(国标)，用于查询路段编码、按路段编码分组统计
+-statistic_date: 统计时间，用于查询统计时间、按统计时间排序
+-device_id: 设备编号，用于查询设备编号、按设备编号筛选
+-camera_status: 摄像枪状态，用于查询摄像枪状态、按摄像枪状态筛选、按摄像枪状态分组统计
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-updatetime: 更新时间
+
+
+###gjdt_jd_ops_order_fault_score_item_history_xy
+故障单评价项目历史表-新粤，用于记录新粤系统故障单的评价项目、评分及工单类型等信息，支持查询所有评价项目历史数据及其所属系统、故障单ID、评价项目、评分和工单类型，支持按故障单ID、评价项目名称、工单类型、所属系统等多条件查询评价详情，可统计各评价项目的平均得分、得分情况及各工单类型的评价项目数量，适用于分析故障工单的评价分布、服务质量及评价趋势：:
+-id: 主键id,用于查询主键id、按主键id筛选、关联查询
+-belong_system_type: 所属系统，用于查询所属系统、按所属系统筛选、按所属系统分组统计
+-faultid: 故障单ID，用于查询故障单ID、按故障单ID筛选、关联查询
+-save_time: 保存时间
+-itemname: 评价项目，用于查询评价项目、按评价项目筛选、按评价项目分组统计
+-itemavgscore: 评价分数，用于查询评价分数
+-orderType: 工单类型，用于查询工单类型、按工单类型筛选、按工单类型分组统计
+
+
+###gjdt_jd_base_device_dict
+设备标准名称表，用于记录机电设备的标准名称、集采状态、系统分类、来源设备ID及变更时间等信息，支持按标准名称、集采标记、系统分类等条件查询设备标准名称及其关联设备信息，支持主键ID、创建时间、变更时间等字段的查询与分析，可统计各系统分类、集采状态下的设备标准名称数量及设备数量，支持故障工单相关评价项目得分查询及集采设备标准化名称检索:
+-devicedictId: 主键id，用于查询主键id、按主键id筛选
+-name: 标准名称，用于查询标准名称、按标准名称筛选、按标准名称分组统计
+-saveTime: 创建时间，用于查询创建时间
+-systemId: 机电系统分类，用于查询机电系统分类、按机电系统分类分组统计
+-centralBuyFlag: 集采标记，用于查询集采标记、按集采标记筛选、按集采标记分组统计
+-centralBuyUpdateTime: 集采变更时间，用于查询集采变更时间
+-fromdict_id: 1端定义的设备名称ID
+
+
+###gjdt_jd_ops_order_fault_device_rel
+故障工单设备关系表，用于记录故障工单与设备的关联信息，包括工单ID、设备ID、工单类型、创建时间、创建人、运维中心、故障等级和状态等字段，支持按工单ID、设备ID、工单类型、运维中心等条件查询和筛选，可统计各工单类型的故障设备关系数量、故障工单关联的设备数量、各故障等级和状态的工单及设备分布，满足故障分析、运维管理和多维度统计需求:
+-id: 主键ID，用于查询主键ID、按主键ID筛选、关联查询
+-create_time: 创建时间，用于查询创建时间、按创建时间排序
+-created_by: 创建人ID，用于查询创建人ID
+-fault_id: 故障工单ID，用于查询故障工单ID、按故障工单ID筛选
+-device_id: 设备id，用于查询设备id、按设备id筛选
+-type: 工单类型，用于查询工单类型、按工单类型筛选、按工单类型分组统计
+
+
+###gjdt_jd_frame_orgunit_propties
+组织架构属性表，用于记录组织架构的属性信息，包括组织架构ID、组织类型、分类等，支持查询所有属性信息、按组织架构ID或类型查询、统计属性数量及按类型分类统计:
+-orgId: 组织架构ID，用于查询组织架构ID、按组织架构ID筛选
+-orgNature: 组织架构类型，用于查询组织架构类型、按组织架构类型筛选、按组织架构类型分组统计
+
+
+###gjdt_jd_base_devops_service_evaluation_explain
+运维服务评价二级指数说明表，用于记录运维服务评价的二级指标说明信息，包括序号、指标ID和解释说明，支持按指标ID或序号查询、统计说明数量及获取详细说明内容：:
+-id: 序号，用于查询序号、按序号筛选、关联查询
+-subDimIndexType: 二级指标说明id，用于查询二级指标说明id、按二级指标说明id筛选、按二级指标说明id分组统计
+-subDimIndexExplain: 指标id对应的解释说明，用于查询指标id对应的解释说明
+
+
+
+###gjdt_jd_res_device_health_index
+设备健康指数结果表，用于记录设备的健康指数、等级及相关关联信息，支持按设备类型、所属系统、路段、编号等多维度查询健康指数结果，统计数量、分布、平均值、极值等指标，支持健康等级分析及与设备出入库明细的关联查询与统计分析:
+-id: 主键id，自增，用于查询主键id、按主键id筛选、关联查询
+-deviceId: 设备编号，用于查询设备编号、按设备编号筛选
+-deviceType: 设备类型/所属系统等信息，用于查询设备类型、按设备类型筛选、按设备类型分组统计
+-deviceTypeId: 设备类型ID，用于查询设备类型ID、按设备类型ID筛选
+-deviceRoad: 设备所属路段，用于查询设备所属路段、按设备所属路段筛选、按设备所属路段分组统计
+-statisticDate: 统计日期，用于查询统计日期、按统计日期筛选、按统计日期排序、关联查询
+-healthIndex: 设备健康指数，用于查询设备健康指数、按设备健康指数筛选、按设备健康指数分组统计、按设备健康指数排序
+-indexLevel: 指数等级，用于查询指数等级、按指数等级筛选、按指数等级分组统计
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+
+
+###gjdt_jd_monitor_road_cms_list
+情报板运行情况-日常运维，用于记录各路段情报板的在线状态、运行情况、更新时间及相关摄像枪运行状态，包含路段信息、国标ID、应在线数、实际在线数等关键指标，支持按路段、高速名称、国标ID等多维度查询情报板及关联摄像枪的数量、运行状态和在线率，支持统计分析各类运行数据:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-roadId: 路段编码，用于查询路段编码、按路段编码筛选、按路段编码分组统计
+-roadName: 路段名称，用于查询路段名称、按路段名称筛选、按路段名称分组统计
+-sectionId: 路段id(国标)，用于查询路段id、按路段id筛选、按路段id分组统计
+-sum: 情报板应在线数，用于查询情报板应在线数、按应在线数排序和筛选、计算在线率
+-inlineSum: 情报板实际在线数，用于查询情报板实际在线数、按实际在线数排序和筛选、计算在线率
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序
+
+
+###gjdt_jd_monitor_road_camera_list
+摄像枪运行情况-日常运维，用于记录各路段摄像枪的在线状态、运行情况及更新时间，包含路段信息、应在线数、实际在线数等字段，支持查询所有摄像枪运行信息、按路段或路段ID筛选、统计在线率及离线数，支持与情报板运行情况关联查询，满足按路段、路段ID、情报板等多维度查询和统计分析需求:
+-id: 主键id，用于查询主键id、按主键id筛选、关联查询
+-roadId: 路段编码，用于查询路段编码、按路段编码筛选、按路段编码分组统计
+-roadName: 路段名称，用于查询路段名称、按路段名称筛选、按路段名称分组统计
+-sectionId: 路段id(国标)，用于查询路段id、按路段id筛选、按路段id分组统计
+-sum: 摄像枪应在线数，用于查询摄像枪应在线数、按应在线数排序和筛选、计算在线率
+-inlineSum: 摄像枪实际在线数，用于查询摄像枪实际在线数、按实际在线数排序和筛选、计算在线率
+-createTime: 创建时间，用于查询创建时间、按创建时间排序
+-updateTime: 更新时间，用于查询更新时间、按更新时间排序

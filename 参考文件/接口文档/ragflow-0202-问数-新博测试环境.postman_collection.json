@@ -1,0 +1,195 @@
+{
+  "info": {
+    "_postman_id": "1e8901eb-4b9c-4920-aa57-b3b86bb58e03",
+    "name": "ragflow-0202-问数-新博测试环境",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50933146",
+    "_collection_link": "https://go.postman.co/collection/50933146-1e8901eb-4b9c-4920-aa57-b3b86bb58e03?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "创建对话-问数",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ragflow-mzfP72GOoH1W8D02r2iFh-snCDzrb5fQtKi8wa9jezk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://172.17.0.112/api/v1/agents/99ccc31b000211f198b30242ad420006/sessions",
+          "protocol": "http",
+          "host": [
+            "172",
+            "17",
+            "0",
+            "112"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "agents",
+            "99ccc31b000211f198b30242ad420006",
+            "sessions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "聊天-问数",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ragflow-mzfP72GOoH1W8D02r2iFh-snCDzrb5fQtKi8wa9jezk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n          \"question\": \"查询所有机电收费车道是否有治超\",\n          \"stream\": true,\n          \"return_trace\": true,\n          \"session_id\": \"46e0c1c4000411f18f620242ad420006\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.17.0.112/api/v1/agents/99ccc31b000211f198b30242ad420006/completions",
+          "protocol": "http",
+          "host": [
+            "172",
+            "17",
+            "0",
+            "112"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "agents",
+            "99ccc31b000211f198b30242ad420006",
+            "completions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取聊天会话-问数",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ragflow-mzfP72GOoH1W8D02r2iFh-snCDzrb5fQtKi8wa9jezk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.17.0.112/api/v1/agents/99ccc31b000211f198b30242ad420006/sessions?page=1&page_size=30&orderby=create_time&desc=true&id=46e0c1c4000411f18f620242ad420006",
+          "protocol": "http",
+          "host": [
+            "172",
+            "17",
+            "0",
+            "112"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "agents",
+            "99ccc31b000211f198b30242ad420006",
+            "sessions"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "page_size",
+              "value": "30"
+            },
+            {
+              "key": "orderby",
+              "value": "create_time"
+            },
+            {
+              "key": "desc",
+              "value": "true"
+            },
+            {
+              "key": "id",
+              "value": "46e0c1c4000411f18f620242ad420006"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "删除会话-问数",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ragflow-mzfP72GOoH1W8D02r2iFh-snCDzrb5fQtKi8wa9jezk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"ids\": [\n        \"46e0c1c4000411f18f620242ad420006\"\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.17.0.112/api/v1/agents/99ccc31b000211f198b30242ad420006/sessions",
+          "protocol": "http",
+          "host": [
+            "172",
+            "17",
+            "0",
+            "112"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "agents",
+            "99ccc31b000211f198b30242ad420006",
+            "sessions"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
